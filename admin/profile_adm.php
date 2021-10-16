@@ -25,11 +25,11 @@
   // Fetch and display the results
   $i = 1;
   while ($row = $result->fetch_object()){
-    echo '<div class="col-md-12 form-group">
+    return '<div class="col-md-12 form-group">
 			  <label for="nama">Nama :</label>
 			  <input type="text" id="nama" readonly class="form-control" value="'.$row->nama.'">
 		  </div>';
-      echo '<div class="col-md-12 form-group">
+      return '<div class="col-md-12 form-group">
 			  <label for="email">Email :</label>
 			  <input type="text" id="email" readonly class="form-control" value="'.$row->email.'">
 		  </div>';
