@@ -1,8 +1,8 @@
 <?php
 require_once('db_login.php');
-$id=$_GET['id'];
+$id=filter_input(INPUT_GET, 'id');
 
-if (!isset($_POST["submit"])) {
+if (!isset(filter_input(INPUT_POST, 'submit'))) {
 	$result = $db->query(" SELECT nama FROM kategori WHERE idkategori=".$id." ");
 	if (!$result){
 	   die ("Could not query the database: <br />". $db->error);
@@ -15,7 +15,7 @@ if (!isset($_POST["submit"])) {
 }
 else{
 	$valid=TRUE;
-	$nama=test_input($_POST['nama']);
+	$nama=test_input(filter_input(INPUT_POST, 'nama'));
 	if($nama==''){
 		$error_nama="Name is required";
 		$valid=FALSE;
