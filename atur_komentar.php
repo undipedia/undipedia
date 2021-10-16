@@ -27,31 +27,31 @@
           <div class="col-lg-8 single-content">
             
             <p class="mb-5">
-				<?php echo '<img src="data:image/jpeg;base64,'.base64_encode($rpost['file_gambar']).'" width="700" height="400"/>';
+				<?php print_r '<img src="data:image/jpeg;base64,'.base64_encode($rpost['file_gambar']).'" width="700" height="400"/>';
 				?>
             </p>  
             <h1 class="mb-3">
-				<?php echo $rpost['judul'];?>
+				<?php print_r $rpost['judul'];?>
 			</h1>
             <div class="post-meta d-flex mb-4">
               <div class="vcard">
-                <span class="d-block"><?php echo $rpenulis['nama'];?> in
+                <span class="d-block"><?php print_r $rpenulis['nama'];?> in
 				<?php 
-					echo '<a href="categories_login.php?id='.$idkategori.'">';
-					echo $rkategori['nama'];
+					print_r '<a href="categories_login.php?id='.$idkategori.'">';
+					print_r $rkategori['nama'];
 				?></a></span>
                 <span class="date-read"><?php
 					$date = new DateTime($rpost['tgl_insert']);
-					echo $date->format('M d, Y');
+					print_r $date->format('M d, Y');
 				?><span class="mx-1">&bullet;</span> <span class="icon-star2"></span></span>
               </div>
             </div>
-				<?php echo $rpost['isipost'];?>
+				<?php print_r $rpost['isipost'];?>
             <div class="pt-5">
                     <p>Categories:  
 					<?php 
-						echo '<a href="categories_login.php?id='.$idkategori.'">';
-						echo $rkategori['nama'];
+						print_r '<a href="categories_login.php?id='.$idkategori.'">';
+						print_r $rkategori['nama'];
 					?></a></p>
                   </div>
 				  
@@ -60,7 +60,7 @@
                       <h2>
 						<?php	
 							$result = $db->query(" SELECT * FROM komentar WHERE idpost=$idpost AND idpenulis=$idpenulis");
-							echo $result->num_rows.'&nbsp;&nbsp';
+							print_r $result->num_rows.'&nbsp;&nbsp';
 						?>
 					  Comments</h2>
                     </div>
@@ -76,18 +76,18 @@
 						  </script>
 							<?php
 							  while ($rkomen = $result->fetch_object()){
-								  echo '<div class="row">';
-								  echo '<div class="col-md-3">';
-								  echo '<h5 style="margin-bottom: 0px">Anonim</h5>';
+								  print_r '<div class="row">';
+								  print_r '<div class="col-md-3">';
+								  print_r '<h5 style="margin-bottom: 0px">Anonim</h5>';
 								  $dkomen = new DateTime(''.$rkomen->tgl_update.'');
-								  echo '<span class="date-read">';
-								  echo $dkomen->format('M d, Y');
-								  echo '</span><br>';
-								  echo ''.$rkomen->isi.'';
-								  echo '</div><div class="col-md-3">';
-								  echo '<br><a onclick="javascript:confirmationDelete($(this));return false;" class="btn btn-danger btn-sm" href="delete_komen.php?id='.$rkomen->idkomentar.'&idpost='.$idpost.'">Delete</a>';
-								  echo '</div>';
-								  echo '</div><br>';
+								  print_r '<span class="date-read">';
+								  print_r $dkomen->format('M d, Y');
+								  print_r '</span><br>';
+								  print_r ''.$rkomen->isi.'';
+								  print_r '</div><div class="col-md-3">';
+								  print_r '<br><a onclick="javascript:confirmationDelete($(this));return false;" class="btn btn-danger btn-sm" href="delete_komen.php?id='.$rkomen->idkomentar.'&idpost='.$idpost.'">Delete</a>';
+								  print_r '</div>';
+								  print_r '</div><br>';
 							  }
 							?>
 						</div>
