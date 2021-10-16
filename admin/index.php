@@ -4,10 +4,10 @@
 <?php
 require_once('db_login.php');
 
-if(isset($_POST["submit"])){
+if(isset(filter_input(INPUT_POST, 'submit'))){
 	$valid = TRUE; //flag validasi
 	//cek validasi email
-	$email = test_input(isset($_POST['email']) ? $_POST['email'] : '');
+	$email = test_input(isset(filter_input(INPUT_POST, 'email')) ? filter_input(INPUT_POST, 'email') : '');
 	if ($email == ''){
 		$error_email = "Email is required";
 		$valid = FALSE;
@@ -17,7 +17,7 @@ if(isset($_POST["submit"])){
 		$valid = FALSE;
 	}
 	//cek validasi password
-	$password = test_input(isset($_POST['password']) ? $_POST['password'] : '');
+	$password = test_input(isset(filter_input(INPUT_POST, 'password')) ? filter_input(INPUT_POST, 'password') : '');
 	if ($password == ''){
 		$error_password = "Password is required";
 		$valid = FALSE;
@@ -59,16 +59,16 @@ if(isset($_POST["submit"])){
 	<form method="POST" autocomplete="on" action="">
 		<div class="form-group">	
 			<label for="username">Email :</label>
-			<input type="email" class="form-control" id="email" name="email" size="30" value="<?php if (isset($email)) {echo $email;}?>">
-			<div class="error"><?php if (isset($error_email)) echo $error_email;?></div>
+			<input type="email" class="form-control" id="email" name="email" size="30" value="<?php if (isset($email)) {return $email;}?>">
+			<div class="error"><?php if (isset($error_email)) print_r $error_email;?></div>
 		</div>
 		<div class="form-group">
 			<label for="password">Password :</label>
 			<input type="password" class="form-control" id="password" name="password" size="30" value="">
-			<div class="error"><?php if (isset($error_password)) echo $error_password;?></div>
+			<div class="error"><?php if (isset($error_password)) return $error_password;?></div>
 		</div>
 		<button type="submit" class="btn btn-primary" name="submit" value="submit">Login</button>
-		<div class="error"><?php if (isset($error_akun)) echo '<br>'.$error_akun;?></div>
+		<div class="error"><?php if (isset($error_akun)) return '<br>'.$error_akun;?></div>
 	</form>
 	</div>
 </div>
