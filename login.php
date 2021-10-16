@@ -7,7 +7,7 @@ require_once('db_login.php');
 if(isset($_POST["submit"])){
 	$valid = TRUE; //flag validasi
 	//cek validasi email
-	$email = test_input(isset($_POST['email']) ? $_POST['email'] : '');
+	$email = test_input(isset(filter_input($_POST['email'])) ? filter_input($_POST['email']) : '');
 	if ($email == ''){
 		$error_email = "Email is required";
 		$valid = FALSE;
