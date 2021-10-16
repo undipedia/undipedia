@@ -1,7 +1,7 @@
 <?php
   include 'db_login.php';
   session_start();
-	$id=$_SESSION['username'];
+	$id=filter_input(INPUT_SESSION, 'username');
 	$query=mysqli_query($db,"SELECT * FROM admin where email='$id'")or die(mysqli_error());
 	$row=mysqli_fetch_array($query);
 ?>
@@ -10,9 +10,9 @@
 <?php include('sidebar.php') ?>
 
 <?php
-if (isset($_POST["submit"])){
+if (isset(filter_input(INPUT_POST, 'submit'))){
 	$valid = TRUE;
-	$password = md5(test_input($_POST['password']));
+	$password = md5(test_input(filter_input(INPUT_POST, 'password')));
 	if ($password == ''){
 		$error_password = "Password harus diisi";
 		$valid = FALSE;
@@ -44,7 +44,7 @@ if (isset($_POST["submit"])){
 	 <div class="form-group">
 		<label for="password">Password Baru :</label>
 		<input type="password" class="form-control" id="password" name="password">
-		<div class="error"><?php if (isset($error_password)) echo $error_password;?></div>
+		<div class="error"><?php if (isset($error_password)) return $error_password;?></div>
 	 </div>
 	 <br>
 	 <button type="submit" class="btn btn-primary" name="submit" value="submit">Save</button>
