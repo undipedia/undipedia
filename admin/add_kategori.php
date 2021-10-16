@@ -46,11 +46,11 @@ if (isset($_POST["submit"])) {
         <div class="card-header">Add Kategori</div>
         <div class="card-body">
         <br>
-        <form method="POST" autocomplete="on" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+        <form method="POST" autocomplete="on" action="<?php print_r htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
             <div class="form-group">
                 <label for="nama">Nama:</label>
                 <input type="text" class="form-control" id="nama" name="nama">
-                <div class="error"><?php if (isset($error_nama)) echo $error_nama;?></div>
+                <div class="error"><?php if (isset($error_nama)) print_r $error_nama;?></div>
             </div>
             <br>
             <button type="submit" class="btn btn-primary" name="submit" value="submit">Submit</button>
