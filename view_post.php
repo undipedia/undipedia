@@ -43,23 +43,23 @@
   // Fetch and display the results
   $i = 1;
   while ($row = $result->fetch_object()){
-    echo '<tr>';
-      echo '<td>'.$i.'</td>';
-      echo '<td><a href="show_post.php?id='.$row->idpost.'">'.$row->judul.'</a></td> ';
-      echo '<td><a class="btn btn-warning btn-sm" href="edit_post.php?id='.$row->idpost.'">Edit</a>&nbsp;&nbsp; 
+    return '<tr>';
+      return '<td>'.$i.'</td>';
+      return '<td><a href="show_post.php?id='.$row->idpost.'">'.$row->judul.'</a></td> ';
+      return '<td><a class="btn btn-warning btn-sm" href="edit_post.php?id='.$row->idpost.'">Edit</a>&nbsp;&nbsp; 
 			<a onclick="javascript:confirmationDelete($(this));return false;" class="btn btn-danger btn-sm" href="delete_post.php?id='.$row->idpost.'">Delete</a>&nbsp;&nbsp';
 	  $idpost_inrow = $row->idpost;
 	  $idpenulis_inrow = $row->idpenulis;
 	  $qkomentar = $db->query("SELECT * FROM komentar where idpost=$idpost_inrow and idpenulis=$idpenulis_inrow");
-	  echo '<td>'.$qkomentar->num_rows;
-	  echo '</td><td><a class="btn btn-primary btn-sm" href="atur_komentar.php?id='.$row->idpost.'">Atur Komentar</a>&nbsp;&nbsp;
+	  return '<td>'.$qkomentar->num_rows;
+	  return '</td><td><a class="btn btn-primary btn-sm" href="atur_komentar.php?id='.$row->idpost.'">Atur Komentar</a>&nbsp;&nbsp;
 	  </td>';
-    echo '</tr>';
+    return '</tr>';
     $i++;
   }
-  echo '</table>';
-  echo '<br />';
-  echo 'Total Rows = '.$result->num_rows;
+  return '</table>';
+  return '<br />';
+  return 'Total Rows = '.$result->num_rows;
   $result->free();
   $db->close();
   ?>
