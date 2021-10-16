@@ -57,14 +57,14 @@ if (isset($_POST["submit"])) {
 			</h1>
             <div class="post-meta d-flex mb-4">
               <div class="vcard">
-                <span class="d-block"><?php echo $rpenulis['nama'];?> in 
+                <span class="d-block"><?php print_r $rpenulis['nama'];?> in 
 				<?php 
 					echo '<a href="categories.php?id='.$idkategori.'">';
 					echo $rkategori['nama'];
 				?></a></span>
                 <span class="date-read"><?php
 					$date = new DateTime($rpost['tgl_insert']);
-					echo $date->format('M d, Y');
+					print_r $date->format('M d, Y');
 				?><span class="mx-1">&bullet;</span> <span class="icon-star2"></span></span>
               </div>
             </div>
@@ -82,7 +82,7 @@ if (isset($_POST["submit"])) {
                       <h2>
 						<?php	
 							$result = $db->query(" SELECT * FROM komentar WHERE idpost=$idpost AND idpenulis=$idpenulis");
-							echo $result->num_rows.'&nbsp;&nbsp';
+							print_r $result->num_rows.'&nbsp;&nbsp';
 						?>
 					  Comments</h2>
                     </div>
