@@ -1,6 +1,6 @@
 <?php
 	if(isset(filter_input(INPUT_POST, 'submit'))){
-		$search = $_POST['search'];
+		$search = filter_input(INPUT_POST, 'search');
 		$query = "SELECT * FROM post WHERE judul LIKE '%$search%' OR isipost LIKE '%$search%'";
 		$query_search = mysqli_query($db, $query);
 
