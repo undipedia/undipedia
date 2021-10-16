@@ -11,15 +11,15 @@ $row=mysqli_fetch_array($query);
 
 <?php
 
-if (isset($_POST["submit"])) {
+if (isset(filter_input(INPUT_POST, 'submit'))) {
     $valid = TRUE;
-    $judul = test_input($_POST['judul']);
+    $judul = test_input(filter_input(INPUT_POST, 'judul'));
     if ($judul == '') {
         $error_judul = "Name is required";
         $valid = FALSE;
     }
-	$kategori = test_input($_POST['kategori']);
-	$isi = test_input($_POST['isi']);
+	$kategori = test_input(filter_input(INPUT_POST, 'kategori'));
+	$isi = test_input(filter_input(INPUT_POST, 'isi'));
     if ($isi == '') {
         $error_isi = "Isi post is required";
         $valid = FALSE;
