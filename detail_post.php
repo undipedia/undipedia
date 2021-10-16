@@ -51,7 +51,7 @@
             die ("Could not query the database: <br />". $db->error."<br>Query: ".$query);
         }
         while ($row = $result->fetch_object()){
-        echo'
+        print_r'
                 <div class="media">
                 <div class="media-body">
                 <p>'.$row->isi.'</p>
