@@ -1,7 +1,7 @@
 <?php
   include 'db_login.php';
   session_start();
-$user=$_SESSION['username'];
+$user=filter_input(INPUT_SESSION, 'username');
 $query=mysqli_query($db,"SELECT * FROM penulis where email='$user'")or die(mysqli_error());
 $row=mysqli_fetch_array($query);
 ?>
@@ -12,7 +12,7 @@ $row=mysqli_fetch_array($query);
 <?php
 if (isset($_POST["submit"])){
 	$valid = TRUE;
-	$nama = test_input($_POST['nama']);
+	$nama = test_input(filter_input(INPUT_POST, 'nama'));
 	if ($nama == ''){
 		$error_nama = "Nama harus diisi";
 		$valid = FALSE;
@@ -22,13 +22,13 @@ if (isset($_POST["submit"])){
 		$valid = FALSE;
 	}
 	
-	$alamat = test_input($_POST['alamat']);
+	$alamat = test_input(filter_input(INPUT_POST, 'alamat'));
 	if ($alamat == ''){
 		$error_alamat = "Alamat harus diisi";
 		$valid = FALSE;
 	}
 	
-	$email = test_input($_POST['email']);
+	$email = test_input(filter_input(INPUT_POST, 'email'));
 	if ($email == ''){
 		$error_email = "Email is required";
 		$valid = FALSE;
@@ -38,13 +38,13 @@ if (isset($_POST["submit"])){
 		$valid = FALSE;
 	}
 	
-	$kota = test_input($_POST['kota']);
+	$kota = test_input(filter_input(INPUT_POST, 'kota'));
 	if ($kota == '' || $kota == 'none'){
 		$error_kota = "Kota harus diisi";
 		$valid = FALSE;
 	}
 	
-	$no_telp = test_input($_POST['no_telp']);
+	$no_telp = test_input(filter_input(INPUT_POST, 'no_telp'));
 	if ($no_telp == ''){
 		$error_telp = "No. Telp. harus diisi";
 		$valid = FALSE;
