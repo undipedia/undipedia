@@ -57,7 +57,7 @@
     echo '</tr>';
     $i++;
   }
-  echo </table>;
+  echo '</table>';
   echo '<br />';
   echo 'Total Rows = '.$result->num_rows;
   $result->free();
