@@ -1,4 +1,4 @@
-<?php
+o<?php
   include 'db_login.php';
   
   $qpost=mysqli_query($db,"SELECT * FROM post ORDER BY tgl_insert DESC LIMIT 6")or die(mysqli_error());
@@ -24,7 +24,7 @@
                 <span class="caption">Topik Hangat</span>                
 				<?php
 					echo '<h2><a href="show_post_pengunjung.php?id='.$rpost_new['idpost'].'">'.$rpost_new['judul'].'</a></h2>';
-					return '<p class="mb-3">';
+					echo '<p class="mb-3">';
 					$text=$rpost_new['isipost'];
 					$num_char=310;
 					$cut_text = substr($text, 0, $num_char);
