@@ -38,23 +38,23 @@ require_once('db_login.php');
     <table class="table table-striped">
         <tr>
             <td colspan="2">Nama Penulis: </td>
-            <td><?php echo $row->nama; ?></td>
+            <td><?php print_r $row->nama; ?></td>
         </tr>
         <tr>
             <td colspan="2">Kota: </td>
-            <td><?php echo $row->kota; ?></td>
+            <td><?php print_r $row->kota; ?></td>
         </tr>
         <tr>
             <td colspan="2">Alamat: </td>
-            <td><?php echo $row->alamat; ?></td>
+            <td><?php print_r $row->alamat; ?></td>
         </tr>
         <tr>
             <td colspan="2">Nomor Telpon: </td>
-            <td><?php echo $row->no_telp; ?></td>
+            <td><?php print_r $row->no_telp; ?></td>
         </tr>
     </table>
     <p>Apakah anda yakin akan menghapus Penulis ini?</p>
-    <a class="btn btn-danger" href="delete_penulis.php?id=<?php echo $id; ?>">Yakin</a>
+    <a class="btn btn-danger" href="delete_penulis.php?id=<?php print_r $id; ?>">Yakin</a>
     <a class="btn btn-primary" href="view_penulis.php">TIdak</a><br><br>
 </div>
 </div>
