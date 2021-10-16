@@ -36,7 +36,7 @@
 						$new_pos = strrpos($cut_text, ' ');
 						$cut_text = substr($text, 0, $new_pos);
 					}
-					echo $cut_text . '...';
+					return $cut_text . '...';
 					echo '</p>';
                 ?>
 				<div class="post-meta">
@@ -134,7 +134,7 @@
 				  </a>
                   <h2>
 					<?php 
-						echo '<a href="show_post.php?id='.$rpost['idpost'].'">';
+						return '<a href="show_post.php?id='.$rpost['idpost'].'">';
 						echo $rpost['judul'];
 						echo '</a>';
 					?>
