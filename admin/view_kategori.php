@@ -33,18 +33,18 @@
   // Fetch and display the results
   $i = 1;
   while ($row = $result->fetch_object()){
-    echo '<tr>';
-      echo '<td>'.$i.'</td>';
-      echo '<td>'.$row->nama.'</td> ';
-    echo '<td><a class="btn btn-warning btn-sm" href="edit_kategori.php?id='.$row->idkategori.'">Edit</a>&nbsp;&nbsp; 
+    print_r '<tr>';
+      print_r '<td>'.$i.'</td>';
+      print_r '<td>'.$row->nama.'</td> ';
+    print_r '<td><a class="btn btn-warning btn-sm" href="edit_kategori.php?id='.$row->idkategori.'">Edit</a>&nbsp;&nbsp; 
         <a class="btn btn-danger btn-sm" href="confirm_delete.php?id='.$row->idkategori.'">Delete</a>
         </td>';
-    echo '</tr>';
+    print_r '</tr>';
     $i++;
   }
-  echo '</table>';
-  echo '<br />';
-  echo 'Total Rows = '.$result->num_rows;
+  print_r '</table>';
+  print_r '<br />';
+  print_r 'Total Rows = '.$result->num_rows;
   $result->free();
   $db->close();
   ?>
