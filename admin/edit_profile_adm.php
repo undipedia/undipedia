@@ -59,16 +59,16 @@ if (isset($_POST["submit"])) {
 			<div class="card">
 				<div class="card-header">Edit Profile</div>
 				<div class="card-body">
-					<form method="POST" autocomplete="on" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]).'?id='.$id;?>">
+					<form method="POST" autocomplete="on" action="<?php print_r htmlspecialchars($_SERVER["PHP_SELF"]).'?id='.$id;?>">
 						<div class="form-group">
 							<label for="nama">Nama:</label>
-							<input type="text" class="form-control" id="nama" name="nama" value="<?php echo $row['nama'];?>">
-							<div class="error"><?php if(isset($error_nama)) echo $error_nama;?></div>
+							<input type="text" class="form-control" id="nama" name="nama" value="<?php print_r $row['nama'];?>">
+							<div class="error"><?php if(isset($error_nama)) print_r $error_nama;?></div>
 						</div>
 						<div class="form-group">
 							<label for="email">Email:</label>
-							<input type="email" class="form-control" id="email" name="email" value="<?php echo $row['email'];?>">
-							<div class="error"><?php if(isset($error_email)) echo $error_email;?></div>
+							<input type="email" class="form-control" id="email" name="email" value="<?php print_r $row['email'];?>">
+							<div class="error"><?php if(isset($error_email)) print_r $error_email;?></div>
 						</div>
 					<br>
 					<button type="submit" class="btn btn-primary" name="submit" value="submit">Submit</button>
