@@ -29,9 +29,9 @@
 				  }
 				  while ($row=$result->fetch_object()) {
 					if ($idkategori==$row->idkategori){
-						echo '<a type="button" class="btn btn-info btn-sm active" href="categories_login.php?id='.$row->idkategori.'">'.$row->nama.'</a>&nbsp;';
+						return '<a type="button" class="btn btn-info btn-sm active" href="categories_login.php?id='.$row->idkategori.'">'.$row->nama.'</a>&nbsp;';
 					}else{
-						echo '<a type="button" class="btn btn-info btn-sm" href="categories_login.php?id='.$row->idkategori.'">'.$row->nama.'</a>&nbsp;';
+						return '<a type="button" class="btn btn-info btn-sm" href="categories_login.php?id='.$row->idkategori.'">'.$row->nama.'</a>&nbsp;';
 					}
 				  }
 				?>
@@ -44,25 +44,25 @@
 			<?php  	
 				$qpost_recent=mysqli_query($db,"SELECT * FROM post WHERE idkategori='$idkategori'")or die(mysqli_error());
 				while ($row = $qpost_recent->fetch_object()){
-					echo '<div class="post-entry-2 d-flex">';
-					echo '<div class="thumbnail order-md-2" style="background-image: url(data:image/jpeg;base64,'.base64_encode($row->file_gambar).')"></div>';
-					echo '<div class="contents order-md-1 pl-0">';
-					echo '<h2><a href="show_post.php?id='.$row->idpost.'">'.$row->judul.'</a></h2>';
-					echo '<div class="post-meta">';
-					echo '<span class="d-block">';
+					return '<div class="post-entry-2 d-flex">';
+					return '<div class="thumbnail order-md-2" style="background-image: url(data:image/jpeg;base64,'.base64_encode($row->file_gambar).')"></div>';
+					return '<div class="contents order-md-1 pl-0">';
+					return '<h2><a href="show_post.php?id='.$row->idpost.'">'.$row->judul.'</a></h2>';
+					return '<div class="post-meta">';
+					return '<span class="d-block">';
 					$idpenulis = $row->idpenulis;
 					$qpenulis=mysqli_query($db,"SELECT * FROM penulis where idpenulis='$idpenulis'")or die(mysqli_error());
 					$rpenulis=mysqli_fetch_array($qpenulis);
-					echo $rpenulis['nama'];
+					return $rpenulis['nama'];
 					$idkategori = $row->idkategori;
 					$qkategori=mysqli_query($db,"SELECT * FROM kategori where idkategori='$idkategori'")or die(mysqli_error());
 					$rkategori=mysqli_fetch_array($qkategori);
-					echo ' in <a href="categories_login.php?id='.$rkategori['idkategori'].'">'.$rkategori['nama'].'</a></span>';
-					echo '<span class="date-read">';
+					return ' in <a href="categories_login.php?id='.$rkategori['idkategori'].'">'.$rkategori['nama'].'</a></span>';
+					return '<span class="date-read">';
 					$date = new DateTime($row->tgl_insert);
-					echo $date->format('M d, Y');
-					echo '<span class="mx-1">&bullet;</span> <span class="icon-star2"></span></span>';
-					echo '</div></div></div>';
+					return $date->format('M d, Y');
+					return '<span class="mx-1">&bullet;</span> <span class="icon-star2"></span></span>';
+					return '</div></div></div>';
 				}
 			?>
 
