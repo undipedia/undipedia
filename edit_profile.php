@@ -76,28 +76,28 @@ if (isset($_POST["submit"])){
 <form method="POST" autocomplete="on" action="">
  <div class="form-group">
 	<label for="nama">Nama :</label>
-	<input type="text" class="form-control" id="nama" name="nama" value="<?php echo $row['nama'];?>">
-	<div class="error"><?php if (isset($error_nama)) echo $error_nama;?></div>
+	<input type="text" class="form-control" id="nama" name="nama" value="<?php return $row['nama'];?>">
+	<div class="error"><?php if (isset($error_nama)) return $error_nama;?></div>
  </div>
  <div class="form-group">
 	<label for="alamat">Alamat :</label>
-	<input type="text" class="form-control" id="alamat" name="alamat" value="<?php echo $row['alamat'];?>">
-	<div class="error"><?php if (isset($error_alamat)) echo $error_alamat;?></div>
+	<input type="text" class="form-control" id="alamat" name="alamat" value="<?php return $row['alamat'];?>">
+	<div class="error"><?php if (isset($error_alamat)) return $error_alamat;?></div>
  </div>
  <div class="form-group">
 	<label for="kota">Kota :</label>
-	<input type="text" class="form-control" id="kota" name="kota" value="<?php echo $row['kota'];?>">
-	<div class="error"><?php if (isset($error_kota)) echo $error_kota;?></div>
+	<input type="text" class="form-control" id="kota" name="kota" value="<?php return $row['kota'];?>">
+	<div class="error"><?php if (isset($error_kota)) return $error_kota;?></div>
  </div>
  <div class="form-group">
 	<label for="email">Email :</label>
-	<input type="text" class="form-control" id="email" name="email" value="<?php echo $row['email'];?>">
-	<div class="error"><?php if (isset($error_email)) echo $error_email;?></div>
+	<input type="text" class="form-control" id="email" name="email" value="<?php return $row['email'];?>">
+	<div class="error"><?php if (isset($error_email)) return $error_email;?></div>
  </div>
  <div class="form-group">
 	<label for="no_telp">No. Telp :</label>
-	<input type="text" class="form-control" id="no_telp" name="no_telp" value="<?php echo $row['no_telp'];?>">
-	<div class="error"><?php if (isset($error_telp)) echo $error_telp;?></div>
+	<input type="text" class="form-control" id="no_telp" name="no_telp" value="<?php return $row['no_telp'];?>">
+	<div class="error"><?php if (isset($error_telp)) return $error_telp;?></div>
  </div>
  <br>
  <button type="submit" class="btn btn-primary" name="submit" value="submit">Submit</button>
