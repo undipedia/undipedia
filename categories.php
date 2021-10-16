@@ -51,7 +51,7 @@
 					$idpenulis = $row->idpenulis;
 					$qpenulis=mysqli_query($db,"SELECT * FROM penulis where idpenulis='$idpenulis'")or die(mysqli_error());
 					$rpenulis=mysqli_fetch_array($qpenulis);
-					echo $rpenulis['nama'];
+					print $rpenulis['nama'];
 					$idkategori = $row->idkategori;
 					$qkategori=mysqli_query($db,"SELECT * FROM kategori where idkategori='$idkategori'")or die(mysqli_error());
 					$rkategori=mysqli_fetch_array($qkategori);
