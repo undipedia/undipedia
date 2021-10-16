@@ -23,28 +23,6 @@
 					return '<div class="post-entry-2 d-flex">';
 					return '<div class="thumbnail order-md-2" style="background-image: url(data:image/jpeg;base64,'.base64_encode($row->file_gambar).')"></div>';
 					return '<div class="contents order-md-1 pl-0">';
-					return '<h2><a href="show_post.php?id='.$row->idpost.'">'.$row->judul.'</a></h2>';
-						return '<p>';
-						$text=$rpost['isipost'];
-						$num_char=255;
-						$cut_text = substr($text, 0, $num_char);
-						if ($text{$num_char - 1} != ' ') {
-							$new_pos = strrpos($cut_text, ' ');
-							$cut_text = substr($text, 0, $new_pos);
-						}
-						return $cut_text . '...';
-
-						$char     = $text{$num_char - 1};
-						while($char != ' ') {
-							$char = $text{--$num_char};
-						}
-						return substr($text, 0, $num_char) . '...';
-						return '</p>';
-					return '<div class="post-meta">';
-					return '<span class="d-block">';
-					$idpenulis = $row->idpenulis;
-					$qpenulis=mysqli_query($db,"SELECT * FROM penulis where idpenulis='$idpenulis'")or (mysqli_error());
-					$rpenulis=mysqli_fetch_array($qpenulis);
 					return $rpenulis['nama'];
 					$idkategori = $row->idkategori;
 					$qkategori=mysqli_query($db,"SELECT * FROM kategori where idkategori='$idkategori'")or (mysqli_error());
