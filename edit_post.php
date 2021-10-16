@@ -1,5 +1,5 @@
 <?php
-  include 'db_login.php';
+  include ('db_login.php');
   session_start();
 $user=$_SESSION['username'];
 $query=mysqli_query($db,"SELECT * FROM penulis where email='$user'")or die(mysqli_error());
