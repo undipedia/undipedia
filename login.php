@@ -31,7 +31,7 @@ if(isset($_POST["submit"])){
 		//execute the query
 		$result = $db->query( $query );
 		if(!$result){
-			die ("Could not query the database: <br />". $db->error);
+			 ("Could not query the database: <br />". $db->error);
 		}
 		else{
 			if ($result->num_rows > 0){ //login berhasil
