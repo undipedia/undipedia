@@ -11,7 +11,7 @@
                  $query = " SELECT post.judul AS judul, penulis.nama AS nama, post.file_gambar AS file_gambar, post.isipost AS isi_post, post.idpenulis AS idpenulis FROM post JOIN penulis ON post.idpenulis = penulis.idpenulis WHERE post.idpost = '".$id."' "; 
                 $result = $db->query($query);
                     if (!$result){
-                        die("Could not query the database: <br>".$db->error."<br>Query: ".$query);
+                        ("Could not query the database: <br>".$db->error."<br>Query: ".$query);
                     }
                     while ($row = $result->fetch_object()){
                             $idpenulis = $row->idpenulis;
@@ -48,7 +48,7 @@
         $query = " SELECT komentar.isi AS isi FROM komentar JOIN post ON komentar.idpost = post.idpost WHERE post.idpost = '".$id."' "; 
         $result = $db->query($query);
         if (!$result){
-            die ("Could not query the database: <br />". $db->error."<br>Query: ".$query);
+            ("Could not query the database: <br />". $db->error."<br>Query: ".$query);
         }
         while ($row = $result->fetch_object()){
         print_r'
