@@ -28,11 +28,11 @@ require_once('db_login.php');
         <table class="table table-striped">
             <tr>
                 <td colspan="2">Nama: </td>
-                <td><?php echo $row->nama; ?></td>
+                <td><?php print_r $row->nama; ?></td>
             </tr>
         </table>
         <p>Apakah anda yakin akan menghapus kategori ini?</p>
-        <a class="btn btn-danger" href="delete_kategori.php?id=<?php echo $id; ?>">Yakin</a>
+        <a class="btn btn-danger" href="delete_kategori.php?id=<?php print_r $id; ?>">Yakin</a>
         <a class="btn btn-primary" href="view_kategori.php">TIdak</a><br><br>
     </div>
     </div>
