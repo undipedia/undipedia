@@ -10,7 +10,7 @@ $row=mysqli_fetch_array($query);
 <?php include('navbar_login.html') ?>
 
 <?php
-if (isset($_POST["submit"])){
+if (isset(filter_input(INPUT_POST, 'submit'))){
 	$valid = TRUE;
 	$nama = test_input(filter_input(INPUT_POST, 'nama'));
 	if ($nama == ''){
