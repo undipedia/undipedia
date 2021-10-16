@@ -30,15 +30,15 @@
                           // Fetch and display the results
                           $i = 1;
                           while ($row = $result->fetch_object()){
-                            return '<tr>';
-                              return '<td>'.$i.'</td>';
-                              return '<td>'.$row->kategori.'</td> ';
-                              return '<td>'.$row->jumlah.'</td>';
+                            print_r '<tr>';
+                              print_r '<td>'.$i.'</td>';
+                              print_r '<td>'.$row->kategori.'</td> ';
+                              print_r '<td>'.$row->jumlah.'</td>';
                             $i++;
                           }
-                          return '</table>';
-                          return '<br />';
-                          return 'Total Rows = '.$result->num_rows;
+                          print_r '</table>';
+                          print_r '<br />';
+                          print_r 'Total Rows = '.$result->num_rows;
                           $result->free();
                           $db->close();
                         ?>
