@@ -1,7 +1,7 @@
 <?php
   include 'db_login.php';
   session_start();
-$user=$_SESSION['username'];
+$user=filter_input(INPUT_SESSION, 'username');
 $query=mysqli_query($db,"SELECT * FROM penulis where email='$user'")or die(mysqli_error());
 $row=mysqli_fetch_array($query);
 ?>
@@ -17,27 +17,27 @@ $row=mysqli_fetch_array($query);
   <div class="row">
 	  <div class="col-md-12 form-group">
 		  <label for="name">Nama :</label>
-		  <input type="text" id="nama" readonly class="form-control" value="<?php echo $row['nama'];?>">
+		  <input type="text" id="nama" readonly class="form-control" value="<?php print_r $row['nama'];?>">
 	  </div>
 	  <div class="col-md-12 form-group">
 		  <label for="name">Email :</label>
-		  <input type="text" id="email" readonly class="form-control" value="<?php echo $row['email'];?>">
+		  <input type="text" id="email" readonly class="form-control" value="<?php print_r $row['email'];?>">
 	  </div>
   </div>
   <div class="row">
 	  <div class="col-md-6 form-group">
 		  <label for="name">Alamat :</label>
-		  <input type="text" id="nama" readonly class="form-control" value="<?php echo $row['alamat'];?>">
+		  <input type="text" id="nama" readonly class="form-control" value="<?php print_r $row['alamat'];?>">
 	  </div>
 	  <div class="col-md-6 form-group">
 		  <label for="name">Kota :</label>
-		  <input type="text" id="nama" readonly class="form-control" value="<?php echo $row['kota'];?>">
+		  <input type="text" id="nama" readonly class="form-control" value="<?php print_r $row['kota'];?>">
 	  </div>
   </div>
   <div class="row">
 	  <div class="col-md-6 form-group">
 		  <label for="name">No. Telp :</label>
-		  <input type="text" id="nama" readonly class="form-control" value="<?php echo $row['no_telp'];?>">
+		  <input type="text" id="nama" readonly class="form-control" value="<?php print_r $row['no_telp'];?>">
 	  </div>
   </div>
  <br>
