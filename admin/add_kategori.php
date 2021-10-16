@@ -1,8 +1,8 @@
 <?php
 require_once('db_login.php');
-if (isset($_POST["submit"])) {
+if (isset(filter_input(INPUT_POST, 'submit'))) {
     $valid = TRUE;
-    $nama = test_input($_POST['nama']);
+    $nama = test_input(filter_input(INPUT_POST, 'nama'));
     if ($nama == '') {
         $error_nama = "Name is required";
         $valid = FALSE;
