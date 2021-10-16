@@ -30,7 +30,7 @@
           // Execute the query
           $result = $db->query(" SELECT * FROM penulis ORDER BY idpenulis ");
           if (!$result){
-             die ("Could not query the database: <br />". $db->error);
+              ("Could not query the database: <br />". $db->error);
           }
           // Fetch and display the results
           $i = 1;
