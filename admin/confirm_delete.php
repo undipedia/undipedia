@@ -1,6 +1,6 @@
 <?php
 require_once('db_login.php');
-    $id = $_GET['id'];
+    $id = filter_input(INPUT_GET, 'id');
     $query = " SELECT * FROM kategori WHERE idkategori=".$id."";
     $result = $db->query($query);
     if (!$result) {
