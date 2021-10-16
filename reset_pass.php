@@ -1,7 +1,7 @@
 <?php
   include 'db_login.php';
   session_start();
-$user=$_SESSION['username'];
+$user=filter_input(INPUT_SESSION, 'username');
 $query=mysqli_query($db,"SELECT * FROM penulis where email='$user'")or die(mysqli_error());
 $row=mysqli_fetch_array($query);
 ?>
@@ -10,9 +10,9 @@ $row=mysqli_fetch_array($query);
 <?php include('navbar_login.html') ?>
 
 <?php
-if (isset($_POST["submit"])){
+if (isset(filter_input(INPUT_POST, 'submit'))){
 	$valid = TRUE;
-	$password = md5(test_input($_POST['password']));
+	$password = md5(test_input(filter_input(INPUT_POST, 'password')));
 	if ($password == ''){
 		$error_password = "Password harus diisi";
 		$valid = FALSE;
@@ -43,7 +43,7 @@ if (isset($_POST["submit"])){
  <div class="form-group">
 	<label for="password">Password Baru :</label>
 	<input type="password" class="form-control" id="password" name="password">
-	<div class="error"><?php if (isset($error_password)) echo $error_password;?></div>
+	<div class="error"><?php if (isset($error_password)) print_r $error_password;?></div>
  </div>
  <br>
  <button type="submit" class="btn btn-primary" name="submit" value="submit">Save</button>
