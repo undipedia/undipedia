@@ -2,7 +2,7 @@
   include 'db_login.php';
   session_start();
   $user=filter_input(INPUT_SESSION , 'username');
-  $query= $db->prepare("SELECT * FROM penulis where email='$user'") or (mysqli_error());
+ $query=mysqli_query($db,"SELECT * FROM penulis where email='$user'") or (mysqli_error());
   $row=mysqli_fetch_array($query);
   
   $qpost=mysqli_query($db,"SELECT * FROM post ORDER BY tgl_insert DESC LIMIT 5")or (mysqli_error());
