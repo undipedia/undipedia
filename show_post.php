@@ -2,19 +2,19 @@
   include 'db_login.php';
   session_start();
   $user=$_SESSION['username'];
-  $query=mysqli_query($db,"SELECT * FROM penulis where email='$user'")or die(mysqli_error());
+  $query=mysqli_query($db,"SELECT * FROM penulis where email='$user'")or (mysqli_error());
   $row=mysqli_fetch_array($query);
   
   $idpost = $_GET['id'];
-  $qpost=mysqli_query($db,"SELECT * FROM post where idpost='$idpost'")or die(mysqli_error());
+  $qpost=mysqli_query($db,"SELECT * FROM post where idpost='$idpost'")or (mysqli_error());
   $rpost=mysqli_fetch_array($qpost);
 	
   $idpenulis = $rpost['idpenulis'];
-  $qpenulis=mysqli_query($db,"SELECT * FROM penulis where idpenulis='$idpenulis'")or die(mysqli_error());
+  $qpenulis=mysqli_query($db,"SELECT * FROM penulis where idpenulis='$idpenulis'")or (mysqli_error());
   $rpenulis=mysqli_fetch_array($qpenulis);
 
   $idkategori = $rpost['idkategori'];
-  $qkategori=mysqli_query($db,"SELECT * FROM kategori where idkategori='$idkategori'")or die(mysqli_error());
+  $qkategori=mysqli_query($db,"SELECT * FROM kategori where idkategori='$idkategori'")or (mysqli_error());
   $rkategori=mysqli_fetch_array($qkategori);
 ?>
 
@@ -36,7 +36,7 @@ if (isset($_POST["submit"])) {
         #execute query
         $result =$db->query($query);
         if (!$result) {
-            die ("could not query the database: <br>".$db->error.'<br>Query:'.$query);
+             ("could not query the database: <br>".$db->error.'<br>Query:'.$query);
         }
         else {
             header('Location: show_post.php?id='.$idpost.'');
@@ -53,31 +53,31 @@ if (isset($_POST["submit"])) {
           <div class="col-lg-8 single-content">
             
             <p class="mb-5">
-				<?php echo '<img src="data:image/jpeg;base64,'.base64_encode($rpost['file_gambar']).'" width="700" height="400"/>';
+				<?php return '<img src="data:image/jpeg;base64,'.base64_encode($rpost['file_gambar']).'" width="700" height="400"/>';
 				?>
             </p>  
             <h1 class="mb-3">
-				<?php echo $rpost['judul'];?>
+				<?php return $rpost['judul'];?>
 			</h1>
             <div class="post-meta d-flex mb-4">
               <div class="vcard">
-                <span class="d-block"><?php echo $rpenulis['nama'];?> in 
+                <span class="d-block"><?php return $rpenulis['nama'];?> in 
 				<?php 
-					echo '<a href="categories_login.php?id='.$idkategori.'">';
-					echo $rkategori['nama'];
+					return '<a href="categories_login.php?id='.$idkategori.'">';
+					return $rkategori['nama'];
 				?></a></span>
                 <span class="date-read"><?php
 					$date = new DateTime($rpost['tgl_insert']);
-					echo $date->format('M d, Y');
+					return $date->format('M d, Y');
 				?><span class="mx-1">&bullet;</span> <span class="icon-star2"></span></span>
               </div>
             </div>
-				<?php echo $rpost['isipost'];?>
+				<?php return $rpost['isipost'];?>
             <div class="pt-5">
                     <p>Categories:  
 					<?php 
-						echo '<a href="categories_login.php?id='.$idkategori.'">';
-						echo $rkategori['nama'];
+						return '<a href="categories_login.php?id='.$idkategori.'">';
+						return $rkategori['nama'];
 					?></a></p>
                   </div>
 				  
@@ -86,7 +86,7 @@ if (isset($_POST["submit"])) {
                       <h2>
 					    <?php	
 							$result = $db->query(" SELECT * FROM komentar WHERE idpost=$idpost AND idpenulis=$idpenulis");
-							echo $result->num_rows.'&nbsp;&nbsp';
+							return $result->num_rows.'&nbsp;&nbsp';
 						?>
 					  Comments</h2>
                     </div>
@@ -95,13 +95,13 @@ if (isset($_POST["submit"])) {
 							<?php
 							  $result = $db->query(" SELECT * FROM komentar WHERE idpost=$idpost AND idpenulis=$idpenulis");
 							  while ($rkomen = $result->fetch_object()){
-								  echo '<h5 style="margin-bottom: 0px">Anonim</h5>';
+								  return '<h5 style="margin-bottom: 0px">Anonim</h5>';
 								  $dkomen = new DateTime(''.$rkomen->tgl_update.'');
-								  echo '<span class="date-read">';
-								  echo $dkomen->format('M d, Y');
-								  echo '</span><br>';
-								  echo ''.$rkomen->isi.'';
-								  echo '<br><br>';
+								  return '<span class="date-read">';
+								  return $dkomen->format('M d, Y');
+								  return '</span><br>';
+								  return ''.$rkomen->isi.'';
+								  return '<br><br>';
 							  }
 							?>
                       </li>
@@ -116,7 +116,7 @@ if (isset($_POST["submit"])) {
                         <div class="form-group">
                           <label for="komen">Message</label>
                           <textarea name="komen" id="komen" cols="30" rows="10" class="form-control"></textarea>
-						  <div class="error"><?php if (isset($error_komen)) echo $error_komen;?></div>
+						  <div class="error"><?php if (isset($error_komen)) return $error_komen;?></div>
                         </div>
                         <div class="form-group">
                           <input type="submit" name="submit" value="Post Comment" class="btn btn-primary py-3">
@@ -133,36 +133,36 @@ if (isset($_POST["submit"])) {
               <h2>Tulisan Terbaru</h2>
             </div>
 			<?php
-			  $qpost_recent=mysqli_query($db,"SELECT * FROM post ORDER BY tgl_insert DESC LIMIT 5")or die(mysqli_error());
+			  $qpost_recent=mysqli_query($db,"SELECT * FROM post ORDER BY tgl_insert DESC LIMIT 5")or (mysqli_error());
 			  $i = 1;
 			  while ($rpost_recent = $qpost_recent->fetch_object()){
-            echo '<div class="trend-entry d-flex">';
-              echo '<div class="number align-self-start">';
-					echo '0'.$i;
-			  echo '</div>';
-              echo '<div class="trend-contents">';
-                echo '<h2>';
-					echo '<a href="show_post.php?id='.$rpost_recent->idpost.'">'.$rpost_recent->judul.'</a>';
-				echo '</h2>';
-                echo '<div class="post-meta">';
-                  echo '<span class="d-block">';
+            return '<div class="trend-entry d-flex">';
+              return '<div class="number align-self-start">';
+					return '0'.$i;
+			  return '</div>';
+              return '<div class="trend-contents">';
+                return '<h2>';
+					return '<a href="show_post.php?id='.$rpost_recent->idpost.'">'.$rpost_recent->judul.'</a>';
+				return '</h2>';
+                return '<div class="post-meta">';
+                  return '<span class="d-block">';
 					  $idpenulis_recent = $rpost_recent->idpenulis;
 					  $qpenulis_recent=mysqli_query($db,"SELECT * FROM penulis where idpenulis='$idpenulis_recent'")or die(mysqli_error());
 					  $rpenulis_recent=mysqli_fetch_array($qpenulis_recent);
-					  echo $rpenulis_recent['nama'];
+					  return $rpenulis_recent['nama'];
 					  $idkategori_recent = $rpost_recent->idkategori;
 					  $qkategori_recent=mysqli_query($db,"SELECT * FROM kategori where idkategori='$idkategori_recent'")or die(mysqli_error());
 					  $rkategori_recent=mysqli_fetch_array($qkategori_recent);
-					  echo ' in <a href="categories_login.php?id='.$rkategori_recent['idkategori'].'">'.$rkategori_recent['nama'].'</a>';
-				  echo '</span>';
-                  echo '<span class="date-read">';
+					  return ' in <a href="categories_login.php?id='.$rkategori_recent['idkategori'].'">'.$rkategori_recent['nama'].'</a>';
+				  return '</span>';
+                  return '<span class="date-read">';
 					  $date = new DateTime($rpost_recent->tgl_insert);
-					  echo $date->format('M d, Y');
-				    echo '<span class="mx-1">&bullet;</span> <span class="icon-star2"></span>';
-				  echo '</span>';
-                echo '</div>';
-              echo '</div>';
-            echo '</div>';
+					  return $date->format('M d, Y');
+				    return '<span class="mx-1">&bullet;</span> <span class="icon-star2"></span>';
+				  return '</span>';
+                return '</div>';
+              return '</div>';
+            return '</div>';
 			$i = $i + 1;}
 			?>
             
