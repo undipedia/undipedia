@@ -1,11 +1,11 @@
 <?php
   include 'db_login.php';
   session_start();
-  $user=$_SESSION['username'];
+  $user=filter_input(INPUT_SESSION, 'username');
   $query=mysqli_query($db,"SELECT * FROM penulis where email='$user'")or (mysqli_error());
   $row=mysqli_fetch_array($query);
   
-  $idpost = $_GET['id'];
+  $idpost = filter_input(INPUT_GET, 'id');
   $qpost=mysqli_query($db,"SELECT * FROM post where idpost='$idpost'")or (mysqli_error());
   $rpost=mysqli_fetch_array($qpost);
 	
@@ -22,9 +22,9 @@
 <?php include('navbar_login.html') ?>
 
 <?php
-if (isset($_POST["submit"])) {
+if (isset(filter_input(INPUT_POST, 'submit'))) {
     $valid = TRUE;
-	$komen = test_input($_POST['komen']);
+	$komen = test_input(filter_input(INPUT_POST, 'komen'));
     if ($komen == '') {
         $error_komen = "Kolom komentar masih kosong";
         $valid = FALSE;
