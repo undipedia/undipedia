@@ -59,16 +59,16 @@ if(isset($_POST["submit"])){
 	<form method="POST" autocomplete="on" action="">
 		<div class="form-group">	
 			<label for="username">Email :</label>
-			<input type="email" class="form-control" id="email" name="email" size="30" value="<?php if (isset($email)) {echo $email;}?>">
-			<div class="error"><?php if (isset($error_email)) echo $error_email;?></div>
+			<input type="email" class="form-control" id="email" name="email" size="30" value="<?php if (isset($email)) {print_r $email;}?>">
+			<div class="error"><?php if (isset($error_email)) print_r $error_email;?></div>
 		</div>
 		<div class="form-group">
 			<label for="password">Password :</label>
 			<input type="password" class="form-control" id="password" name="password" size="30" value="">
-			<div class="error"><?php if (isset($error_password)) echo $error_password;?></div>
+			<div class="error"><?php if (isset($error_password)) print_r $error_password;?></div>
 		</div>
 		<button type="submit" class="btn btn-primary" name="submit" value="submit">Login</button>
-		<div class="error"><?php if (isset($error_akun)) echo '<br>'.$error_akun;?></div>
+		<div class="error"><?php if (isset($error_akun)) print_r '<br>'.$error_akun;?></div>
 		<hr>
 		Belum punya Akun? ~ <a href="sign-up.php">Sign Up</a>
 	</form>
