@@ -2,15 +2,15 @@
   include 'db_login.php';
   
   $idpost = $_GET['id'];
-  $qpost=mysqli_query($db,"SELECT * FROM post where idpost='$idpost'")or die(mysqli_error());
+  $qpost=mysqli_query($db,"SELECT * FROM post where idpost='$idpost'")or (mysqli_error());
   $rpost=mysqli_fetch_array($qpost);
 	
   $idpenulis = $rpost['idpenulis'];
-  $qpenulis=mysqli_query($db,"SELECT * FROM penulis where idpenulis='$idpenulis'")or die(mysqli_error());
+  $qpenulis=mysqli_query($db,"SELECT * FROM penulis where idpenulis='$idpenulis'")or (mysqli_error());
   $rpenulis=mysqli_fetch_array($qpenulis);
 
   $idkategori = $rpost['idkategori'];
-  $qkategori=mysqli_query($db,"SELECT * FROM kategori where idkategori='$idkategori'")or die(mysqli_error());
+  $qkategori=mysqli_query($db,"SELECT * FROM kategori where idkategori='$idkategori'")or (mysqli_error());
   $rkategori=mysqli_fetch_array($qkategori);
 ?>
 
@@ -32,7 +32,7 @@ if (isset($_POST["submit"])) {
         #execute query
         $result =$db->query($query);
         if (!$result) {
-            die ("could not query the database: <br>".$db->error.'<br>Query:'.$query);
+             ("could not query the database: <br>".$db->error.'<br>Query:'.$query);
         }
         else {
             header('Location: show_post_pengunjung.php?id='.$idpost.'');
@@ -72,7 +72,7 @@ if (isset($_POST["submit"])) {
             <div class="pt-5">
                     <p>Categories:  
 					<?php 
-						echo '<a href="categories.php?id='.$idkategori.'">';
+						print_r '<a href="categories.php?id='.$idkategori.'">';
 						echo $rkategori['nama'];
 					?></a></p>
                   </div>
