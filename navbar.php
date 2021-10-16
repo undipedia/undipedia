@@ -1,5 +1,5 @@
 <?php
-	if(isset($_POST['submit'])){
+	if(isset(filter_input(INPUT_POST, 'submit'))){
 		$search = $_POST['search'];
 		$query = "SELECT * FROM post WHERE judul LIKE '%$search%' OR isipost LIKE '%$search%'";
 		$query_search = mysqli_query($db, $query);
@@ -11,7 +11,7 @@
 		$count = mysqli_num_rows($query_search);
 
 		if($count == 0){
-			echo "<h1 class='text-center'> Pencarian tidak ditemukan.</h1>";
+			print_r "<h1 class='text-center'> Pencarian tidak ditemukan.</h1>";
 		} else{
 			header('Location: search.php?qs='.$query_search.'');
 		}
