@@ -147,11 +147,11 @@ if (isset($_POST["submit"])) {
                 return '<div class="post-meta">';
                   return '<span class="d-block">';
 					  $idpenulis_recent = $rpost_recent->idpenulis;
-					  $qpenulis_recent=mysqli_query($db,"SELECT * FROM penulis where idpenulis='$idpenulis_recent'")or die(mysqli_error());
+					  $qpenulis_recent=mysqli_query($db,"SELECT * FROM penulis where idpenulis='$idpenulis_recent'")or (mysqli_error());
 					  $rpenulis_recent=mysqli_fetch_array($qpenulis_recent);
 					  return $rpenulis_recent['nama'];
 					  $idkategori_recent = $rpost_recent->idkategori;
-					  $qkategori_recent=mysqli_query($db,"SELECT * FROM kategori where idkategori='$idkategori_recent'")or die(mysqli_error());
+					  $qkategori_recent=mysqli_query($db,"SELECT * FROM kategori where idkategori='$idkategori_recent'")or (mysqli_error());
 					  $rkategori_recent=mysqli_fetch_array($qkategori_recent);
 					  return ' in <a href="categories_login.php?id='.$rkategori_recent['idkategori'].'">'.$rkategori_recent['nama'].'</a>';
 				  return '</span>';
