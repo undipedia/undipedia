@@ -81,7 +81,7 @@
   -ms-user-select: none;
   user-select: none;
 }
-.datepicker td;
+.datepicker td,
 .datepicker th {
   text-align: center;
   width: 20px;
