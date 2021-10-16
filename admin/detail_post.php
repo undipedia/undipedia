@@ -7,7 +7,7 @@
           <div class="contents">
             <?php
                 require_once('db_login.php');
-                 $id = (isset($_POST['id']) ? $_POST['id'] : '');
+                 $id = (isset(filter_input(INPUT_POST, 'id')) ? filter_input(INPUT_POST, 'id') : '');
                  $query = " SELECT post.judul AS judul, penulis.nama AS nama, post.file_gambar AS file_gambar, post.isipost AS isi_post, post.idpenulis AS idpenulis FROM post JOIN penulis ON post.idpenulis = penulis.idpenulis WHERE post.idpost = '".$id."' "; 
                 $result = $db->query($query);
                     if (!$result){
