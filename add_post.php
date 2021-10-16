@@ -30,7 +30,7 @@ if (isset(filter_input(INPUT_POST, 'submit'))) {
         #escape inputs data
         $judul = $db->real_escape_string($judul);
 		$idpenulis = $row['idpenulis'];
-		$imgData = addslashes(file_get_contents($_FILES['gambar']['tmp_name']));
+		$imgData = addslashes(file_get_contents(filter_input(INPUT_FILES, 'gambar', 'tmp_name')));
         #assign a query
         $query = " INSERT INTO post(judul,idkategori,isipost,file_gambar,idpenulis) VALUES('".$judul."',$kategori,'".$isi."','{$imgData}',$idpenulis)";
         #execute query
