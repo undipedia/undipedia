@@ -4,9 +4,9 @@
 <?php
 require_once('db_login.php');
 
-if (isset($_POST["submit"])){
+if (isset(filter_input(INPUT_POST, 'submit'))){
 	$valid = TRUE;
-	$name = test_input($_POST['name']);
+	$name = test_input(filter_input(INPUT_POST, 'name'));
 	if ($name == ''){
 		$error_name = "Nama harus diisi";
 		$valid = FALSE;
@@ -16,19 +16,19 @@ if (isset($_POST["submit"])){
 		$valid = FALSE;
 	}
 	
-	$password = md5(test_input($_POST['password']));
+	$password = md5(test_input(filter_input(INPUT_POST, 'password'));
 	if ($password == ''){
 		$error_password = "Password harus diisi";
 		$valid = FALSE;
 	}
 	
-	$alamat = test_input($_POST['alamat']);
+	$alamat = test_input(filter_input(INPUT_POST , 'alamat'));
 	if ($alamat == ''){
 		$error_alamat = "Alamat harus diisi";
 		$valid = FALSE;
 	}
 	
-	$email = test_input($_POST['email']);
+	$email = test_input(filter_input(INPUT_POST ,'email'));
 	if ($email == ''){
 		$error_email = "Email is required";
 		$valid = FALSE;
@@ -38,13 +38,13 @@ if (isset($_POST["submit"])){
 		$valid = FALSE;
 	}
 	
-	$kota = test_input($_POST['kota']);
+	$kota = test_input(filter_input(INPUT_POST , 'kota'));
 	if ($kota == '' || $kota == 'none'){
 		$error_kota = "Kota harus diisi";
 		$valid = FALSE;
 	}
 	
-	$telp = test_input($_POST['telp']);
+	$telp = test_input(filter_input(INPUT_POST , 'telp'));
 	if ($telp == ''){
 		$error_telp = "No. Telp. harus diisi";
 		$valid = FALSE;
@@ -57,7 +57,7 @@ if (isset($_POST["submit"])){
 		//execute
 		$result = $db->query( $query );
 		if (!result){
-			die("Could not query the database: <br />". $db->error. '<br>Query:' .$query);
+			("Could not query the database: <br />". $db->error. '<br>Query:' .$query);
 		}
 		else{
 			$db->close();
