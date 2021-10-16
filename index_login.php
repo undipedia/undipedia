@@ -22,13 +22,13 @@
           <div class="container">
             <div class="half-post-entry d-block d-lg-flex bg-light">
 			<?php
-				echo '<div class="img-bg" style="background-image: url(data:image/jpeg;base64,'.base64_encode($rpost_new['file_gambar']).')"></div>';
+				return '<div class="img-bg" style="background-image: url(data:image/jpeg;base64,'.base64_encode($rpost_new['file_gambar']).')"></div>';
             ?>
 			  <div class="contents">
                 <span class="caption">Topik Hangat</span>                
 				<?php
-					echo '<h2><a href="show_post.php?id='.$rpost_new['idpost'].'">'.$rpost_new['judul'].'</a></h2>';
-					echo '<p class="mb-3">';
+					return '<h2><a href="show_post.php?id='.$rpost_new['idpost'].'">'.$rpost_new['judul'].'</a></h2>';
+					return '<p class="mb-3">';
 					$text=$rpost_new['isipost'];
 					$num_char=550;
 					$cut_text = substr($text, 0, $num_char);
@@ -37,7 +37,7 @@
 						$cut_text = substr($text, 0, $new_pos);
 					}
 					return $cut_text . '...';
-					echo '</p>';
+					return '</p>';
                 ?>
 				<div class="post-meta">
                   <span class="d-block">
@@ -45,18 +45,18 @@
 				  $idpenulis = $rpost['idpenulis'];
 				  $qpenulis=mysqli_query($db,"SELECT * FROM penulis where idpenulis='$idpenulis'")or die(mysqli_error());
 				  $rpenulis=mysqli_fetch_array($qpenulis);
-				  echo $rpenulis['nama'];
+				  return $rpenulis['nama'];
 				  $idkategori = $rpost['idkategori'];
 				  $qkategori=mysqli_query($db,"SELECT * FROM kategori where idkategori='$idkategori'")or die(mysqli_error());
 				  $rkategori=mysqli_fetch_array($qkategori);
-					echo ' in <a href="categories_login.php?id='.$rpost_new['idkategori'].'">';
-					echo $rkategori['nama'];
-					echo '</a></span>';
+					return ' in <a href="categories_login.php?id='.$rpost_new['idkategori'].'">';
+					return $rkategori['nama'];
+					return '</a></span>';
 				  ?>
 					<span class="date-read">
 					<?php
 					$date = new DateTime($rpost['tgl_insert']);
-					echo $date->format('M d, Y');
+					return $date->format('M d, Y');
 					?>
 				  <span class="mx-1">&bullet;</span> <span class="icon-star2"></span></span>
                 </div>
@@ -71,13 +71,13 @@
             <div class="half-post-entry d-block d-lg-flex bg-light">
 			<?php
 				$rpost_new=mysqli_fetch_array($qpost_new);
-				echo '<div class="img-bg" style="background-image: url(data:image/jpeg;base64,'.base64_encode($rpost_new['file_gambar']).')"></div>';
+				return '<div class="img-bg" style="background-image: url(data:image/jpeg;base64,'.base64_encode($rpost_new['file_gambar']).')"></div>';
             ?>
 			  <div class="contents">
                 <span class="caption">Topik Hangat</span>                
 				<?php
-					echo '<h2><a href="show_post.php?id='.$rpost_new['idpost'].'">'.$rpost_new['judul'].'</a></h2>';
-					echo '<p class="mb-3">';
+					return '<h2><a href="show_post.php?id='.$rpost_new['idpost'].'">'.$rpost_new['judul'].'</a></h2>';
+					return '<p class="mb-3">';
 					$text=$rpost_new['isipost'];
 					$num_char=550;
 					$cut_text = substr($text, 0, $num_char);
@@ -85,8 +85,8 @@
 						$new_pos = strrpos($cut_text, ' ');
 						$cut_text = substr($text, 0, $new_pos);
 					}
-					echo $cut_text . '...';
-					echo '</p>';
+					return $cut_text . '...';
+					return '</p>';
                 ?>
 				<div class="post-meta">
                   <span class="d-block">
@@ -94,18 +94,18 @@
 				  $idpenulis = $rpost['idpenulis'];
 				  $qpenulis=mysqli_query($db,"SELECT * FROM penulis where idpenulis='$idpenulis'")or die(mysqli_error());
 				  $rpenulis=mysqli_fetch_array($qpenulis);
-				  echo $rpenulis['nama'];
+				  return $rpenulis['nama'];
 				  $idkategori = $rpost['idkategori'];
 				  $qkategori=mysqli_query($db,"SELECT * FROM kategori where idkategori='$idkategori'")or die(mysqli_error());
 				  $rkategori=mysqli_fetch_array($qkategori);
-					echo ' in <a href="categories_login.php?id='.$rpost_new['idkategori'].'">';
-					echo $rkategori['nama'];
-					echo '</a></span>';
+					return ' in <a href="categories_login.php?id='.$rpost_new['idkategori'].'">';
+					return $rkategori['nama'];
+					return '</a></span>';
 				  ?>
 					<span class="date-read">
 					<?php
 					$date = new DateTime($rpost['tgl_insert']);
-					echo $date->format('M d, Y');
+					return $date->format('M d, Y');
 					?>
 				  <span class="mx-1">&bullet;</span> <span class="icon-star2"></span></span>
                 </div>
@@ -128,19 +128,19 @@
             <div class="row">
               <div class="col-md-6">
                 <div class="post-entry-1">
-				  <?php echo '<a href="show_post.php?id='.$rpost['idpost'].'">';
-					echo '<img src="data:image/jpeg;base64,'.base64_encode($rpost['file_gambar']).'" alt="Image" class="img-fluid"/>';
+				  <?php return '<a href="show_post.php?id='.$rpost['idpost'].'">';
+					return '<img src="data:image/jpeg;base64,'.base64_encode($rpost['file_gambar']).'" alt="Image" class="img-fluid"/>';
 				  ?>
 				  </a>
                   <h2>
 					<?php 
 						return '<a href="show_post.php?id='.$rpost['idpost'].'">';
-						echo $rpost['judul'];
-						echo '</a>';
+						return $rpost['judul'];
+						return '</a>';
 					?>
 				  </h2>
 					<?php
-						echo '<p>';
+						return '<p>';
 						$text=$rpost['isipost'];
 						$num_char=700;
 						$cut_text = substr($text, 0, $num_char);
@@ -148,8 +148,8 @@
 							$new_pos = strrpos($cut_text, ' ');
 							$cut_text = substr($text, 0, $new_pos);
 						}
-						echo $cut_text . '...';
-						echo '</p>';
+						return $cut_text . '...';
+						return '</p>';
 					?>
                   <div class="post-meta">
 					  <div class="vcard">
@@ -157,14 +157,14 @@
 						  $idpenulis = $rpost['idpenulis'];
 						  $qpenulis=mysqli_query($db,"SELECT * FROM penulis where idpenulis='$idpenulis'")or die(mysqli_error());
 						  $rpenulis=mysqli_fetch_array($qpenulis);
-						  echo $rpenulis['nama'];
+						  return $rpenulis['nama'];
 						  $idkategori = $rpost['idkategori'];
 						  $qkategori=mysqli_query($db,"SELECT * FROM kategori where idkategori='$idkategori'")or die(mysqli_error());
 						  $rkategori=mysqli_fetch_array($qkategori);
-							echo ' in <a href="categories_login.php?id='.$rkategori['idkategori'].'">'.$rkategori['nama'].'</a></span>';
-							echo '<span class="date-read">';
+							return ' in <a href="categories_login.php?id='.$rkategori['idkategori'].'">'.$rkategori['nama'].'</a></span>';
+							return '<span class="date-read">';
 							$date = new DateTime($rpost['tgl_insert']);
-							echo $date->format('M d, Y');
+							return $date->format('M d, Y');
 						?><span class="mx-1">&bullet;</span> <span class="icon-star2"></span></span>
 					  </div>
                   </div>
@@ -173,25 +173,25 @@
               <div class="col-md-6">
 				<?php  	
 					while ($row = $qpost->fetch_object()){
-						echo '<div class="post-entry-2 d-flex">';
-						echo '<div class="thumbnail" style="background-image: url(data:image/jpeg;base64,'.base64_encode($row->file_gambar).')"></div>';
-						echo '<div class="contents">';
-						echo '<h2><a href="show_post.php?id='.$row->idpost.'">'.$row->judul.'</a></h2>';
-						echo '<div class="post-meta">';
-						echo '<span class="d-block">';
+						return '<div class="post-entry-2 d-flex">';
+						return '<div class="thumbnail" style="background-image: url(data:image/jpeg;base64,'.base64_encode($row->file_gambar).')"></div>';
+						return '<div class="contents">';
+						return '<h2><a href="show_post.php?id='.$row->idpost.'">'.$row->judul.'</a></h2>';
+						return '<div class="post-meta">';
+						return '<span class="d-block">';
 						$idpenulis = $row->idpenulis;
 						$qpenulis=mysqli_query($db,"SELECT * FROM penulis where idpenulis='$idpenulis'")or die(mysqli_error());
 						$rpenulis=mysqli_fetch_array($qpenulis);
-						echo $rpenulis['nama'];
+						return $rpenulis['nama'];
 						$idkategori = $row->idkategori;
 						$qkategori=mysqli_query($db,"SELECT * FROM kategori where idkategori='$idkategori'")or die(mysqli_error());
 						$rkategori=mysqli_fetch_array($qkategori);
-						echo ' in <a href="categories_login.php?id='.$rkategori['idkategori'].'">'.$rkategori['nama'].'</a></span>';
-						echo '<span class="date-read">';
+						return ' in <a href="categories_login.php?id='.$rkategori['idkategori'].'">'.$rkategori['nama'].'</a></span>';
+						return '<span class="date-read">';
 						$date = new DateTime($row->tgl_insert);
-						echo $date->format('M d, Y');
-						echo '<span class="mx-1">&bullet;</span> <span class="icon-star2"></span></span>';
-						echo '</div></div></div>';
+						return $date->format('M d, Y');
+						return '<span class="mx-1">&bullet;</span> <span class="icon-star2"></span></span>';
+						return '</div></div></div>';
 					}
 				?>
 				<p>
