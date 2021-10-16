@@ -60,7 +60,7 @@ else{
 		$nama=$db->real_escape_string($nama);
 		$alamat=$db->real_escape_string($alamat);
 		$kota=$db->real_escape_string($kota);
-    	$password = md5(test_input($_POST['password']));
+    	$password = md5(test_input(filter_input(INPUT_POST , 'password')));
 		//Asign a query
 		$query="UPDATE penulis SET nama='".$nama."', alamat='".$alamat."',kota='".$kota."',no_telp='".$no_telp."',password='".$password."' WHERE idpenulis='".$id."'";
 		//Execute the query
