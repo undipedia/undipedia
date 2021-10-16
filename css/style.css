@@ -66,8 +66,7 @@ h1, h2, h3, h4, h5,
     opacity: 1;
     visibility: visible; }
 
-.line-height-1 {
-  line-height: 1 !important; }
+.line-height-1 { line-height: 1 !important; }
 
 .bg-black {
   background: #000; }
@@ -82,7 +81,7 @@ h1, h2, h3, h4, h5,
 
 .site-section-heading {
   padding-bottom: 20px;
-  margin-bottom: 0px;
+  margin-bottom: 0;
   position: relative;
   font-size: 2.5rem; }
   @media (min-width: 768px) {
