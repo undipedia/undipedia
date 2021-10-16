@@ -73,7 +73,7 @@ if (isset($_POST["submit"])) {
                     <p>Categories:  
 					<?php 
 						print_r '<a href="categories.php?id='.$idkategori.'">';
-						echo $rkategori['nama'];
+						print_r $rkategori['nama'];
 					?></a></p>
                   </div>
 				  
@@ -111,7 +111,7 @@ if (isset($_POST["submit"])) {
                         <div class="form-group">
                           <label for="komen">Message</label>
                           <textarea name="komen" id="komen" cols="30" rows="10" class="form-control"></textarea>
-						  <div class="error"><?php if (isset($error_komen)) echo $error_komen;?></div>
+						  <div class="error"><?php if (isset($error_komen)) return $error_komen;?></div>
                         </div>
                         <div class="form-group">
                           <input type="submit" name="submit" value="Post Comment" class="btn btn-primary py-3">
@@ -127,7 +127,7 @@ if (isset($_POST["submit"])) {
               <h2>Tulisan Terbaru</h2>
             </div>
 			<?php
-			  $qpost_recent=mysqli_query($db,"SELECT * FROM post ORDER BY tgl_insert DESC LIMIT 5")or die(mysqli_error());
+			  $qpost_recent=mysqli_query($db,"SELECT * FROM post ORDER BY tgl_insert DESC LIMIT 5")or (mysqli_error());
 			  $i = 1;
 			  while ($rpost_recent = $qpost_recent->fetch_object()){
             print_r '<div class="trend-entry d-flex">';
@@ -141,13 +141,13 @@ if (isset($_POST["submit"])) {
                 print_r '<div class="post-meta">';
                   print_r '<span class="d-block">';
 					  $idpenulis_recent = $rpost_recent->idpenulis;
-					  $qpenulis_recent=mysqli_query($db,"SELECT * FROM penulis where idpenulis='$idpenulis_recent'")or die(mysqli_error());
+					  $qpenulis_recent=mysqli_query($db,"SELECT * FROM penulis where idpenulis='$idpenulis_recent'")or (mysqli_error());
 					  $rpenulis_recent=mysqli_fetch_array($qpenulis_recent);
-					  echo $rpenulis_recent['nama'];
+					  return $rpenulis_recent['nama'];
 					  $idkategori_recent = $rpost_recent->idkategori;
-					  $qkategori_recent=mysqli_query($db,"SELECT * FROM kategori where idkategori='$idkategori_recent'")or die(mysqli_error());
+					  $qkategori_recent=mysqli_query($db,"SELECT * FROM kategori where idkategori='$idkategori_recent'")or (mysqli_error());
 					  $rkategori_recent=mysqli_fetch_array($qkategori_recent);
-					  echo ' in <a href="categories.php?id='.$rkategori_recent['idkategori'].'">'.$rkategori_recent['nama'].'</a>';
+					  return ' in <a href="categories.php?id='.$rkategori_recent['idkategori'].'">'.$rkategori_recent['nama'].'</a>';
 				  print_r '</span>';
                   print_r '<span class="date-read">';
 					  $date = new DateTime($rpost_recent->tgl_insert);
