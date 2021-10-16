@@ -12,5 +12,3 @@
   
   mysqli_close($db);
 ?>
-dari ini = $id = (isset($_POST['id']) ? $_POST['id'] : '');
-jadi ini = $id = (isset(filter_input(INPUT_POST, 'id')) ? filter_input(INPUT_POST, 'id') : '');
