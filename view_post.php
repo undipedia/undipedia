@@ -2,7 +2,7 @@
   include 'db_login.php';
   session_start();
 	$user=$_SESSION['username'];
-	$query=mysqli_query($db,"SELECT * FROM penulis where email='$user'")or die(mysqli_error());
+	$query=mysqli_query($db,"SELECT * FROM penulis where email='$user'")or (mysqli_error());
 	$row=mysqli_fetch_array($query);
 ?>
 
@@ -38,7 +38,7 @@
   $idpenulis = $row['idpenulis'];
   $result = $db->query(" SELECT * FROM post WHERE idpenulis=$idpenulis ");
   if (!$result){
-     die ("Could not query the database: <br />". $db->error);
+     ("Could not query the database: <br />". $db->error);
   }
   // Fetch and display the results
   $i = 1;
