@@ -1,7 +1,7 @@
 <?php
   include 'db_login.php';
   
-  $idpost = $_GET['id'];
+  $idpost = filter_input(INPUT_GET, 'id');
   $qpost=mysqli_query($db,"SELECT * FROM post where idpost='$idpost'")or (mysqli_error());
   $rpost=mysqli_fetch_array($qpost);
 	
@@ -18,9 +18,9 @@
 <?php include('navbar.html') ?>
 
 <?php
-if (isset($_POST["submit"])) {
+if (isset(filter_input(INPUT_POST, 'submit'))) {
     $valid = TRUE;
-	$komen = test_input($_POST['komen']);
+	$komen = test_input(filter_input(INPUT_POST, 'komen'));
     if ($komen == '') {
         $error_komen = "Kolom komentar masih kosong";
         $valid = FALSE;
