@@ -46,7 +46,7 @@ if (isset(filter_input(INPUT_POST, 'submit'))) {
         <div class="card-header">Add Kategori</div>
         <div class="card-body">
         <br>
-        <form method="POST" autocomplete="on" action="<?php print_r htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+        <form method="POST" autocomplete="on" action="<?php print_r htmlspecialchars(filter_input(INPUT_SERVER, 'PHP_SELF')); ?>">
             <div class="form-group">
                 <label for="nama">Nama:</label>
                 <input type="text" class="form-control" id="nama" name="nama">
