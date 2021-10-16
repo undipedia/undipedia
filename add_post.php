@@ -56,7 +56,7 @@ if (isset($_POST["submit"])) {
     <div class="form-group">
         <label for="judul">Judul :</label>
         <input type="text" class="form-control" id="judul" name="judul">
-        <div class="error"><?php if (isset($error_judul)) echo $error_judul;?></div>
+        <div class="error"><?php if (isset($error_judul)) print_r $error_judul;?></div>
     </div>
     <div class="form-group">
         <label for="kategori">Kategori :</label>
@@ -70,7 +70,7 @@ if (isset($_POST["submit"])) {
 					die("Could not query the database: <br>".$db->error);
 				}
 				while ($row=$result->fetch_object()) {
-					echo'<option value="'.$row->idkategori.'">'.$row->nama.'</option>';
+					print_r'<option value="'.$row->idkategori.'">'.$row->nama.'</option>';
 				}
 				$result->free();
 				$db->close();
@@ -80,7 +80,7 @@ if (isset($_POST["submit"])) {
     <div class="form-group">
         <label for="isi">Isi Post :</label>
         <textarea class="form-control" id="isi" name="isi" rows="5" cols="40" minlength="5"></textarea>
-        <div class="error"><?php if (isset($error_isi)) echo $error_isi;?></div>
+        <div class="error"><?php if (isset($error_isi)) print_r $error_isi;?></div>
     </div>
     <div class="form-group">
       <label>Pilih file gambar :</label><br>
