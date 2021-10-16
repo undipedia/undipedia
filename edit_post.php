@@ -4,7 +4,7 @@
 $user=filter_input(INPUT_SESSION, 'username');
 $query=mysqli_query($db,"SELECT * FROM penulis where email='$user'")or (mysqli_error());
 $row=mysqli_fetch_array($query);
-$id=filter_input(GET, 'id');
+$id=filter_input(INPUT_GET, 'id');
 $qpost=mysqli_query($db,"SELECT * FROM post where idpost='$id'")or (mysqli_error());
 $rpost=mysqli_fetch_array($qpost);
 ?>
@@ -31,7 +31,7 @@ if (isset(filter_input(INPUT_POST, 'submit'))) {
         #escape inputs data
         $judul = $db->real_escape_string($judul);
 		$idpenulis = $row['idpenulis'];
-		$imgData = addslashes(file_get_contents($_FILES['gambar']['tmp_name']));
+		$imgData = addslashes(file_get_contents(filter_input(INPUT_FILES, 'gambar', 'tmp_name')));
         #assign a query
         $query = " UPDATE post SET judul='".$judul."', idkategori=$kategori, isipost='".$isi."', file_gambar='{$imgData}' WHERE idpost='$id'";
         #execute query
