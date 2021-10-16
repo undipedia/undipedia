@@ -4,7 +4,7 @@
 <?php
 require_once('db_login.php');
 
-if (isset(filter_input($_POST["submit"]))){
+if (isset($_POST["submit"])){
 	$valid = TRUE;
 	$name = test_input($_POST['name']);
 	if ($name == ''){
