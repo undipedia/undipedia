@@ -3,7 +3,7 @@
   
   $qpost=mysqli_query($db,"SELECT * FROM post ORDER BY tgl_insert DESC LIMIT 5")or die(mysqli_error());
   $rpost=mysqli_fetch_array($qpost);	
-	$search=$_GET['search'];
+	$search=filter_input(INPUT_GET, 'search');
 	$query = "SELECT * FROM post WHERE judul LIKE '%$search%' OR isipost LIKE '%$search%'";
 	$query_search = mysqli_query($db, $query);
 
