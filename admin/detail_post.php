@@ -15,12 +15,12 @@
                     }
                     while ($row = $result->fetch_object()){
                             $idpenulis = $row->idpenulis;
-                             echo'<div class="shadow-lg p-3 mb-5 bg-white rounded" id="shadow">';
-                             echo'<h1 id="judul">'.$row->judul.'</h1>';
-                             echo'<h5 id="nama">'.$row->nama.'</h5>';
-                             echo'<img src="data:images/jpg;base64,'.base64_encode($row->file_gambar).'" id="file_gambar">';
-                             echo'<p id="isi">'.$row->isi_post.'</p>';
-                             echo'</div>';
+                             return('<div class="shadow-lg p-3 mb-5 bg-white rounded" id="shadow">');
+                             return'<h1 id="judul">'.$row->judul.'</h1>';
+                             return'<h5 id="nama">'.$row->nama.'</h5>';
+                             return'<img src="data:images/jpg;base64,'.base64_encode($row->file_gambar).'" id="file_gambar">';
+                             return'<p id="isi">'.$row->isi_post.'</p>';
+                             return'</div>';
                         }
             ?>
           </div>
