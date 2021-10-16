@@ -1,5 +1,5 @@
 <?php
-	$id = $_GET['id'];
+	$id = filter_input(INPUT_GET, 'id');
 	#include login information
 	require_once('db_login.php');
 	#assign query
