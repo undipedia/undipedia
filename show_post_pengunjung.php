@@ -150,8 +150,8 @@ if (isset($_POST["submit"])) {
 					  echo ' in <a href="categories.php?id='.$rkategori_recent['idkategori'].'">'.$rkategori_recent['nama'].'</a>';
 				  echo '</span>';
                   echo '<span class="date-read">';
-					  $date = new DateTime($rpost_recent->tgl_insert);
-					  echo $date->format('M d, Y');
+					 print $date = new DateTime($rpost_recent->tgl_insert);
+					  print $date->format('M d, Y');
 				    echo '<span class="mx-1">&bullet;</span> <span class="icon-star2"></span>';
 				  echo '</span>';
                 echo '</div>';
