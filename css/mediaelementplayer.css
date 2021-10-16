@@ -45,7 +45,7 @@ Reference: http://blog.rrwd.nl/2015/04/04/the-screen-reader-text-class-why-and-h
 
 .mejs__fill-container {
     background: transparent;
-    margin: 0 auto;
+    margin:0 auto;
     overflow: hidden;
     position: relative;
 }
@@ -78,7 +78,7 @@ Reference: http://blog.rrwd.nl/2015/04/04/the-screen-reader-text-class-why-and-h
     bottom: 0;
     left: 0;
     overflow: hidden;
-    position: fixed;
+    position:fixed;
     right: 0;
     top: 0;
     z-index: 1000;
@@ -108,7 +108,7 @@ Reference: http://blog.rrwd.nl/2015/04/04/the-screen-reader-text-class-why-and-h
 
 .mejs__poster {
     background-position: 50% 50%;
-    background-repeat: no-repeat;
+    background-repeat:no-repeat;
     background-size: cover;
     left: 0;
     position: absolute;
@@ -261,7 +261,7 @@ Reference: http://blog.rrwd.nl/2015/04/04/the-screen-reader-text-class-why-and-h
 /* Start: Time (Current / Duration) */
 .mejs__time {
     box-sizing: content-box;
-    color: #fff;
+    color:#fff;
     font-size: 11px;
     font-weight: bold;
     height: 24px;
