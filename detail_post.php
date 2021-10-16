@@ -31,7 +31,7 @@
         <br>        <br>       
     <div class="container">
         <footer class="page-footer" id="comment">
-        <form method="POST" autocomplete="on" action="simpan.php?id=<?php echo $id; ?>&penulis=<?php esc_html_e($idpenulis); ?>">
+        <form method="POST" autocomplete="on" action="simpan.php?id=<?php return $id; ?>&penulis=<?php return $idpenulis; ?>">
                 <div class="form-group">
                     <label for="comment">Leave a Comment:</label>
                     <input type="text" class="form-control" name="comment" value="">
