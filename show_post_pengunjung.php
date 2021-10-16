@@ -49,18 +49,18 @@ if (isset($_POST["submit"])) {
           <div class="col-lg-8 single-content">
             
             <p class="mb-5">
-				<?php echo '<img src="data:image/jpeg;base64,'.base64_encode($rpost['file_gambar']).'" width="600" height="400"/>';
+				<?php print_r '<img src="data:image/jpeg;base64,'.base64_encode($rpost['file_gambar']).'" width="600" height="400"/>';
 				?>
             </p>  
             <h1 class="mb-3">
-				<?php echo $rpost['judul'];?>
+				<?php print_r $rpost['judul'];?>
 			</h1>
             <div class="post-meta d-flex mb-4">
               <div class="vcard">
                 <span class="d-block"><?php print_r $rpenulis['nama'];?> in 
 				<?php 
-					echo '<a href="categories.php?id='.$idkategori.'">';
-					echo $rkategori['nama'];
+					print_r '<a href="categories.php?id='.$idkategori.'">';
+					print_r $rkategori['nama'];
 				?></a></span>
                 <span class="date-read"><?php
 					$date = new DateTime($rpost['tgl_insert']);
@@ -68,7 +68,7 @@ if (isset($_POST["submit"])) {
 				?><span class="mx-1">&bullet;</span> <span class="icon-star2"></span></span>
               </div>
             </div>
-				<?php echo $rpost['isipost'];?>
+				<?php print_r $rpost['isipost'];?>
             <div class="pt-5">
                     <p>Categories:  
 					<?php 
@@ -93,10 +93,10 @@ if (isset($_POST["submit"])) {
 								  echo '<h5 style="margin-bottom: 0px">Anonim</h5>';
 								  $dkomen = new DateTime(''.$rkomen->tgl_update.'');
 								  echo '<span class="date-read">';
-								  echo $dkomen->format('M d, Y');
-								  echo '</span><br>';
-								  echo ''.$rkomen->isi.'';
-								  echo '<br><br>';
+								  print_r $dkomen->format('M d, Y');
+								  print_r '</span><br>';
+								  print_r ''.$rkomen->isi.'';
+								  print_r '<br><br>';
 							  }
 							?>
                       </li>
@@ -150,8 +150,8 @@ if (isset($_POST["submit"])) {
 					  echo ' in <a href="categories.php?id='.$rkategori_recent['idkategori'].'">'.$rkategori_recent['nama'].'</a>';
 				  echo '</span>';
                   echo '<span class="date-read">';
-					 print $date = new DateTime($rpost_recent->tgl_insert);
-					  print $date->format('M d, Y');
+					  $date = new DateTime($rpost_recent->tgl_insert);
+					  echo $date->format('M d, Y');
 				    echo '<span class="mx-1">&bullet;</span> <span class="icon-star2"></span>';
 				  echo '</span>';
                 echo '</div>';
