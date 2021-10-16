@@ -8,7 +8,7 @@
 	$query_search = mysqli_query($db, $query);
 
 	if(!$query_search){
-		die("QUERY FAILED" . mysqli_error($db));
+		("QUERY FAILED" . mysqli_error($db));
 	}
 
 	$count = mysqli_num_rows($query_search);
@@ -53,11 +53,11 @@
 					return '<div class="post-meta">';
 					return '<span class="d-block">';
 					$idpenulis = $idpenulis;
-					$qpenulis=mysqli_query($db,"SELECT * FROM penulis where idpenulis='$idpenulis'")or die(mysqli_error());
+					$qpenulis=mysqli_query($db,"SELECT * FROM penulis where idpenulis='$idpenulis'")or (mysqli_error());
 					$rpenulis=mysqli_fetch_array($qpenulis);
 					return $rpenulis['nama'];
 					$idkategori = $idkategori;
-					$qkategori=mysqli_query($db,"SELECT * FROM kategori where idkategori='$idkategori'")or die(mysqli_error());
+					$qkategori=mysqli_query($db,"SELECT * FROM kategori where idkategori='$idkategori'")or (mysqli_error());
 					$rkategori=mysqli_fetch_array($qkategori);
 					return ' in <a href="categories.php?id='.$rkategori['idkategori'].'">'.$rkategori['nama'].'</a></span>';
 					return '<span class="date-read">';
