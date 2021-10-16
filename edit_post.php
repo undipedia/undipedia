@@ -1,7 +1,7 @@
 <?php
   include ('db_login.php');
   session_start();
-$user=$_SESSION['username'];
+$user=filter_input(INPUT_SESSION, 'username');
 $query=mysqli_query($db,"SELECT * FROM penulis where email='$user'")or (mysqli_error());
 $row=mysqli_fetch_array($query);
 $id=$_GET['id'];
@@ -13,15 +13,15 @@ $rpost=mysqli_fetch_array($qpost);
 <?php include('navbar_login.html') ?>
 
 <?php
-if (isset($_POST["submit"])) {
+if (isset(filter_input(INPUT_POST, 'submit'))) {
     $valid = TRUE;
-    $judul = test_input($_POST['judul']);
+    $judul = test_input(filter_input(INPUT_POST, 'judul'));
     if ($judul == '') {
         $error_judul = "Name is required";
         $valid = FALSE;
     }
-	$kategori = test_input($_POST['kategori']);
-	$isi = test_input($_POST['isi']);
+	$kategori = test_input(filter_input(INPUT_POST, 'kategoti'));
+	$isi = test_input(filter_input(INPUT_POST, 'isi'));
     if ($judul == '') {
         $error_judul = "Name is required";
         $valid = FALSE;
