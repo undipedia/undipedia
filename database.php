@@ -26,6 +26,6 @@ function recent_posts($no_posts = 10, $excerpts = true) {
                $output .= '<li>No posts found</li>';
        }
 
-   echo $output;
+   return $output;
 }
 ?>
