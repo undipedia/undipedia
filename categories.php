@@ -1,8 +1,8 @@
 <?php
   include 'db_login.php';
   
-  if ($_GET['id']){
-	  $idkategori=$_GET['id'];	  
+  if (filter_input(INPUT_GET, 'id')){
+	  $idkategori=filter_input(INPUT_GET, 'id');	  
   }
   $qpost=mysqli_query($db,"SELECT * FROM post ORDER BY tgl_insert DESC LIMIT 5")or die(mysqli_error());
   $rpost=mysqli_fetch_array($qpost);	
@@ -23,7 +23,7 @@
 				  $query = " SELECT * FROM kategori ORDER BY idkategori ";
 				  $result =$db->query($query);
 				  if (!$result) {
-					die("Could not query the database: <br>".$db->error);
+					("Could not query the database: <br>".$db->error);
 				  }
 				  while ($row=$result->fetch_object()) {
 					if ($idkategori==$row->idkategori){
@@ -49,11 +49,11 @@
 					return '<div class="post-meta">';
 					return '<span class="d-block">';
 					$idpenulis = $row->idpenulis;
-					$qpenulis=mysqli_query($db,"SELECT * FROM penulis where idpenulis='$idpenulis'")or die(mysqli_error());
+					$qpenulis=mysqli_query($db,"SELECT * FROM penulis where idpenulis='$idpenulis'")or (mysqli_error());
 					$rpenulis=mysqli_fetch_array($qpenulis);
 					print_r $rpenulis['nama'];
 					$idkategori = $row->idkategori;
-					$qkategori=mysqli_query($db,"SELECT * FROM kategori where idkategori='$idkategori'")or die(mysqli_error());
+					$qkategori=mysqli_query($db,"SELECT * FROM kategori where idkategori='$idkategori'")or (mysqli_error());
 					$rkategori=mysqli_fetch_array($qkategori);
 					return ' in <a href="categories.php?id='.$rkategori['idkategori'].'">'.$rkategori['nama'].'</a></span>';
 					return '<span class="date-read">';
