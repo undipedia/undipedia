@@ -130,4 +130,4 @@ else{
 <br><br><br>
   </div>
 </div>
-<?php include ('/footer.html') ?>
+<?php include ('footer.html') ?>
