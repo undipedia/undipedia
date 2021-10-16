@@ -1,7 +1,7 @@
 <?php
 include ('db_login.php');
 session_start();
-$id=$_SESSION['username'];
+$id=filter_input(INPUT_SESSION, 'username');
 	$query=mysqli_query($db,"SELECT * FROM admin where email='$id'")or die(mysqli_error());
 	$row=mysqli_fetch_array($query);
 ?>
@@ -9,9 +9,9 @@ $id=$_SESSION['username'];
 <?php include('sidebar.php') ?>
 
 <?php
-if (isset($_POST["submit"])) {
+if (isset(filter_input(INPUT_POST, 'submit'))) {
 	$valid=TRUE;
-	$nama=test_input($_POST['nama']);
+	$nama=test_input(filter_input(INPUT_POST, 'nama'));
 	if($nama==''){
 		$error_nama="Name is required";
 		$valid=FALSE;
@@ -20,7 +20,7 @@ if (isset($_POST["submit"])) {
 		$error_nama="Only letters and white space allowed";
 		$valid=FALSE;
 	}
-	$email=test_input($_POST['email']);
+	$email=test_input(filter_input(INPUT_POST, 'email'));
 	if ($email=='') {
 		$error_email="Email is required";
 		$valid=FALSE;
