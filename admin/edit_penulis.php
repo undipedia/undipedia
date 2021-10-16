@@ -3,9 +3,9 @@
 //Deskripsi: menampilkan form edit data customer dan mengupdate data ke database
 
 require_once('db_login.php');
-$id=$_GET['id'];
+$id=filter_input(INPUT_GET, 'id');
 
-if (!isset($_POST["submit"])) {
+if (!isset(filter_input(INPUT_POST, 'submit'))) {
 	$result = $db->query(" SELECT * FROM penulis WHERE idpenulis=".$id." ");
 	if (!$result){
 	   die ("Could not query the database: <br />". $db->error);
@@ -21,7 +21,7 @@ if (!isset($_POST["submit"])) {
 }
 else{
 	$valid=TRUE;
-	$nama=test_input($_POST['nama']);
+	$nama=test_input(filter_input(INPUT_POST, 'nama'));
 	if($nama==''){
 		$error_nama="Name is required";
 		$valid=FALSE;
@@ -30,17 +30,17 @@ else{
 		$error_nama="Only letters and white space allowed";
 		$valid=FALSE;
 	}
-	$alamat=test_input($_POST['alamat']);
+	$alamat=test_input(filter_input(INPUT_POST, 'alamat'));
 	if ($alamat=='') {
 		$error_alamat="Address is required";
 		$valid=FALSE;
 	}
-	$kota=test_input($_POST['kota']);
+	$kota=test_input(filter_input(INPUT_POST, 'kota'));
 	if ($kota=='') {
 		$error_kota="City is required";
 		$valid=FALSE;
 	}
-	$no_telp=test_input($_POST['no_telp']);
+	$no_telp=test_input(filter_input(INPUT_POST, 'no_telp'));
 	if ($no_telp=='') {
 		$error_no_telp="Phone Number is required";
 		$valid=FALSE;
@@ -49,7 +49,7 @@ else{
 		$error_no_telp="Only numbers allowed";
 		$valid=FALSE;
 	}
-	$password=test_input($_POST['password']);
+	$password=test_input(filter_input(INPUT_POST, 'password'));
 	if ($password=='') {
 		$error_password="Password is required";
 		$valid=FALSE;
