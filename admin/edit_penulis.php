@@ -91,31 +91,31 @@ else{
 			<div class="card">
 				<div class="card-header">Edit Penulis</div>
 				<div class="card-body">
-					<form method="POST" autocomplete="on" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]).'?id='.$id;?>">
+					<form method="POST" autocomplete="on" action="<?php print_r htmlspecialchars($_SERVER["PHP_SELF"]).'?id='.$id;?>">
 						<div class="form-group">
 							<label for="name">Nama:</label>
-							<input type="text" class="form-control" id="nama" name="nama" value="<?php echo $nama;?>">
-							<div class="error"><?php if(isset($error_nama)) echo $error_nama;?></div>
+							<input type="text" class="form-control" id="nama" name="nama" value="<?php print_r $nama;?>">
+							<div class="error"><?php if(isset($error_nama)) print_r $error_nama;?></div>
 						</div>
 						<div class="form-group">
 							<label for="alamat">Alamat:</label>
-							<input type="text" class="form-control" id="alamat" name="alamat" value="<?php echo $alamat;?>">
-							<div class="error"><?php if(isset($error_alamat)) echo $error_alamat;?></div>
+							<input type="text" class="form-control" id="alamat" name="alamat" value="<?php print_r $alamat;?>">
+							<div class="error"><?php if(isset($error_alamat)) print_r $error_alamat;?></div>
 						</div>
 						<div class="form-group">
 							<label for="kota">Kota:</label>
-							<input type="text" class="form-control" id="kota" name="kota" value="<?php echo $kota;?>">
-							<div class="error"><?php if(isset($error_kota)) echo $error_kota;?></div>
+							<input type="text" class="form-control" id="kota" name="kota" value="<?php print_r $kota;?>">
+							<div class="error"><?php if(isset($error_kota)) print_r $error_kota;?></div>
 						</div>
 						<div class="form-group">
 							<label for="no_telp">Nomor Telpon:</label>
-							<input type="text" class="form-control" id="no_telp" name="no_telp" value="<?php echo $no_telp;?>">
-							<div class="error"><?php if(isset($error_no_telp)) echo $error_no_telp;?></div>
+							<input type="text" class="form-control" id="no_telp" name="no_telp" value="<?php print_r $no_telp;?>">
+							<div class="error"><?php if(isset($error_no_telp)) print_r $error_no_telp;?></div>
 						</div>
 						<div class="form-group">
 							<label for="password">Password: </label>
 							<input type="password" class="form-control" id="password" name="password" value="">
-							<div class="error"><?php if(isset($error_password)) echo $error_password;?></div>
+							<div class="error"><?php if(isset($error_password)) print_r $error_password;?></div>
 						</div>
 					<br>
 					<button type="submit" class="btn btn-primary" name="submit" value="submit">Submit</button>
