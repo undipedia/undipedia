@@ -10,7 +10,7 @@ include('navbar.php');
 
 <?php
 require_once('db_login.php');
-    $id = $_GET['id'];
+    $id = filter_input(INPUT_GET, 'id');
     $query = " SELECT * FROM penulis WHERE idpenulis=".$id."";
     $result = $db->query($query);
     if (!$result) {
