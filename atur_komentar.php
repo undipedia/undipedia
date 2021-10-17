@@ -2,19 +2,19 @@
   include 'db_login.php';
   session_start();
   $user=$_SESSION['username'];
-  $query=mysqli_query($db,"SELECT * FROM penulis where email='$user'")or die(mysqli_error());
+  $query=mysqli_query($db,"SELECT * FROM penulis where email='$user'")or (mysqli_error());
   $row=mysqli_fetch_array($query);
   
   $idpost = $_GET['id'];
-  $qpost=mysqli_query($db,"SELECT * FROM post where idpost='$idpost'")or die(mysqli_error());
+  $qpost=mysqli_query($db,"SELECT * FROM post where idpost='$idpost'")or (mysqli_error());
   $rpost=mysqli_fetch_array($qpost);
 	
   $idpenulis = $rpost['idpenulis'];
-  $qpenulis=mysqli_query($db,"SELECT * FROM penulis where idpenulis='$idpenulis'")or die(mysqli_error());
+  $qpenulis=mysqli_query($db,"SELECT * FROM penulis where idpenulis='$idpenulis'")or (mysqli_error());
   $rpenulis=mysqli_fetch_array($qpenulis);
 
   $idkategori = $rpost['idkategori'];
-  $qkategori=mysqli_query($db,"SELECT * FROM kategori where idkategori='$idkategori'")or die(mysqli_error());
+  $qkategori=mysqli_query($db,"SELECT * FROM kategori where idkategori='$idkategori'")or (mysqli_error());
   $rkategori=mysqli_fetch_array($qkategori);
 ?>
 
