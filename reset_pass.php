@@ -25,7 +25,7 @@ if (isset(filter_input(INPUT_POST, 'submit'))){
 		//execute
 		$result = $db->query( $query );
 		if (!result){
-			die("Could not query the database: <br />". $db->error. '<br>Query:' .$query);
+			("Could not query the database: <br />". $db->error. '<br>Query:' .$query);
 		}
 		else{
 			$db->close();
