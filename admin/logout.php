@@ -1,6 +1,6 @@
 <?php
 session_start();
-unset($_SESSION['id']);
+unset(filter_input(INPUT_SESSION, 'id'));
 session_destroy();
 header("Location: index.php");
 ?>
