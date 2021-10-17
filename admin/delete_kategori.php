@@ -7,7 +7,7 @@
 	#execute query
 	$result = $db->query($query);
 	if (!$result) {
-	    die ("Could not query the database: <br>".$db->error);
+	     ("Could not query the database: <br>".$db->error);
 	}else {
 	    $db->close();
 	    header('Location: view_kategori.php');
