@@ -1,7 +1,7 @@
 o<?php
   include 'db_login.php';
   
-  $qpost=mysqli_query($db,"SELECT * FROM post ORDER BY tgl_insert DESC LIMIT 6")or die(mysqli_error());
+  $qpost=mysqli_query($db,"SELECT * FROM post ORDER BY tgl_insert DESC LIMIT 6")or (mysqli_error());
   $rpost=mysqli_fetch_array($qpost);	
 ?>
 
@@ -10,7 +10,7 @@ o<?php
 
  <div class="site-section py-0">
 	<?php
-	  $qpost_new=mysqli_query($db,"SELECT * FROM post ORDER BY tgl_insert DESC")or die(mysqli_error());
+	  $qpost_new=mysqli_query($db,"SELECT * FROM post ORDER BY tgl_insert DESC")or (mysqli_error());
 	  $rpost_new=mysqli_fetch_array($qpost_new);	  
 	?>
       <div class="owl-carousel hero-slide owl-style">
@@ -45,11 +45,11 @@ o<?php
                   <span class="d-block">
 				  <?php
 				  $idpenulis = $rpost['idpenulis'];
-				  $qpenulis=mysqli_query($db,"SELECT * FROM penulis where idpenulis='$idpenulis'")or die(mysqli_error());
+				  $qpenulis=mysqli_query($db,"SELECT * FROM penulis where idpenulis='$idpenulis'")or (mysqli_error());
 				  $rpenulis=mysqli_fetch_array($qpenulis);
 				  return $rpenulis['nama'];
 				  $idkategori = $rpost['idkategori'];
-				  $qkategori=mysqli_query($db,"SELECT * FROM kategori where idkategori='$idkategori'")or die(mysqli_error());
+				  $qkategori=mysqli_query($db,"SELECT * FROM kategori where idkategori='$idkategori'")or (mysqli_error());
 				  $rkategori=mysqli_fetch_array($qkategori);
 					return ' in <a href="categories.php?id='.$rpost_new['idkategori'].'">';
 					return $rkategori['nama'];
@@ -100,11 +100,11 @@ o<?php
                   <span class="d-block">
 				  <?php
 				  $idpenulis = $rpost['idpenulis'];
-				  $qpenulis=mysqli_query($db,"SELECT * FROM penulis where idpenulis='$idpenulis'")or die(mysqli_error());
+				  $qpenulis=mysqli_query($db,"SELECT * FROM penulis where idpenulis='$idpenulis'")or (mysqli_error());
 				  $rpenulis=mysqli_fetch_array($qpenulis);
 				  return $rpenulis['nama'];
 				  $idkategori = $rpost['idkategori'];
-				  $qkategori=mysqli_query($db,"SELECT * FROM kategori where idkategori='$idkategori'")or die(mysqli_error());
+				  $qkategori=mysqli_query($db,"SELECT * FROM kategori where idkategori='$idkategori'")or (mysqli_error());
 				  $rkategori=mysqli_fetch_array($qkategori);
 					return ' in <a href="categories.php?id='.$rpost_new['idkategori'].'">';
 					return $rkategori['nama'];
@@ -169,11 +169,11 @@ o<?php
 					  <div class="vcard">
 						<span class="d-block"><?php 
 						  $idpenulis = $rpost['idpenulis'];
-						  $qpenulis=mysqli_query($db,"SELECT * FROM penulis where idpenulis='$idpenulis'")or die(mysqli_error());
+						  $qpenulis=mysqli_query($db,"SELECT * FROM penulis where idpenulis='$idpenulis'")or (mysqli_error());
 						  $rpenulis=mysqli_fetch_array($qpenulis);
 						  return $rpenulis['nama'];
 						  $idkategori = $rpost['idkategori'];
-						  $qkategori=mysqli_query($db,"SELECT * FROM kategori where idkategori='$idkategori'")or die(mysqli_error());
+						  $qkategori=mysqli_query($db,"SELECT * FROM kategori where idkategori='$idkategori'")or (mysqli_error());
 						  $rkategori=mysqli_fetch_array($qkategori);
 							return ' in <a href="categories.php?id='.$rkategori['idkategori'].'">'.$rkategori['nama'].'</a></span>';
 							return '<span class="date-read">';
@@ -194,11 +194,11 @@ o<?php
 						return '<div class="post-meta">';
 						return '<span class="d-block">';
 						$idpenulis = $row->idpenulis;
-						$qpenulis=mysqli_query($db,"SELECT * FROM penulis where idpenulis='$idpenulis'")or die(mysqli_error());
+						$qpenulis=mysqli_query($db,"SELECT * FROM penulis where idpenulis='$idpenulis'")or (mysqli_error());
 						$rpenulis=mysqli_fetch_array($qpenulis);
 						return $rpenulis['nama'];
 						$idkategori = $row->idkategori;
-						$qkategori=mysqli_query($db,"SELECT * FROM kategori where idkategori='$idkategori'")or die(mysqli_error());
+						$qkategori=mysqli_query($db,"SELECT * FROM kategori where idkategori='$idkategori'")or (mysqli_error());
 						$rkategori=mysqli_fetch_array($qkategori);
 						return ' in <a href="categories.php?id='.$rkategori['idkategori'].'">'.$rkategori['nama'].'</a></span>';
 						return '<span class="date-read">';
