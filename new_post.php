@@ -14,7 +14,7 @@
               <h2>Tulisan Terbaru</h2>
             </div>
 			<?php  	
-				$qpost_recent=mysqli_query($db,"SELECT * FROM post ORDER BY tgl_insert DESC")or die(mysqli_error());
+				$qpost_recent=mysqli_query($db,"SELECT * FROM post ORDER BY tgl_insert DESC")or (mysqli_error());
 				while ($row = $qpost_recent->fetch_object()){
 					return '<div class="post-entry-2 d-flex">';
 					return '<div class="thumbnail order-md-2" style="background-image: url(data:image/jpeg;base64,'.base64_encode($row->file_gambar).')"></div>';
@@ -39,11 +39,11 @@
 					return '<div class="post-meta">';
 					return '<span class="d-block">';
 					$idpenulis = $row->idpenulis;
-					$qpenulis=mysqli_query($db,"SELECT * FROM penulis where idpenulis='$idpenulis'")or die(mysqli_error());
+					$qpenulis=mysqli_query($db,"SELECT * FROM penulis where idpenulis='$idpenulis'")or (mysqli_error());
 					$rpenulis=mysqli_fetch_array($qpenulis);
 					return $rpenulis['nama'];
 					$idkategori = $row->idkategori;
-					$qkategori=mysqli_query($db,"SELECT * FROM kategori where idkategori='$idkategori'")or die(mysqli_error());
+					$qkategori=mysqli_query($db,"SELECT * FROM kategori where idkategori='$idkategori'")or (mysqli_error());
 					$rkategori=mysqli_fetch_array($qkategori);
 					return ' in <a href="categories.php?id='.$rkategori['idkategori'].'">'.$rkategori['nama'].'</a></span>';
 					return '<span class="date-read">';
