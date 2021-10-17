@@ -5,7 +5,7 @@ $id=filter_input(INPUT_GET, 'id');
 if (!isset(filter_input(INPUT_POST, 'submit'))) {
 	$result = $db->query(" SELECT nama FROM kategori WHERE idkategori=".$id." ");
 	if (!$result){
-	   die ("Could not query the database: <br />". $db->error);
+	    ("Could not query the database: <br />". $db->error);
 	}
 	else{
 		while ($row=$result->fetch_object()){
@@ -33,7 +33,7 @@ else{
 		//Execute the query
 		$result=$db->query($query);
 		if (!$result) {
-			die("Could not query the database: <br/>".$db->error.'<br>Query:'.$query);
+			("Could not query the database: <br/>".$db->error.'<br>Query:'.$query);
 		}
 		else{
 			$db->close();
