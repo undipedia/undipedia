@@ -59,7 +59,7 @@ if (isset(filter_input(INPUT_POST, 'submit'))) {
 			<div class="card">
 				<div class="card-header">Edit Profile</div>
 				<div class="card-body">
-					<form method="POST" autocomplete="on" action="<?php print_r htmlspecialchars($_SERVER["PHP_SELF"]).'?id='.$id;?>">
+					<form method="POST" autocomplete="on" action="<?php print_r htmlspecialchars(filter_input(INPUT_SERVER, 'PHP_SELF')).'?id='.$id;?>">
 						<div class="form-group">
 							<label for="nama">Nama:</label>
 							<input type="text" class="form-control" id="nama" name="nama" value="<?php print_r $row['nama'];?>">
