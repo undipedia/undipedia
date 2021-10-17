@@ -4,7 +4,7 @@
   if (filter_input(INPUT_GET, 'id')){
 	  $idkategori=filter_input(INPUT_GET, 'id');	  
   }
-  $qpost=mysqli_query($db,"SELECT * FROM post ORDER BY tgl_insert DESC LIMIT 5")or die(mysqli_error());
+  $qpost=mysqli_query($db,"SELECT * FROM post ORDER BY tgl_insert DESC LIMIT 5")or (mysqli_error());
   $rpost=mysqli_fetch_array($qpost);	
 ?>
 
@@ -40,7 +40,7 @@
 		<div class="col-sm-2" style="border-right:groove; border-width:thin"></div>
 		<div class="col-lg-4">
 			<?php  	
-				$qpost_recent=mysqli_query($db,"SELECT * FROM post WHERE idkategori='$idkategori'")or die(mysqli_error());
+				$qpost_recent=mysqli_query($db,"SELECT * FROM post WHERE idkategori='$idkategori'")or (mysqli_error());
 				while ($row = $qpost_recent->fetch_object()){
 					return '<div class="post-entry-2 d-flex">';
 					return '<div class="thumbnail order-md-2" style="background-image: url(data:image/jpeg;base64,'.base64_encode($row->file_gambar).')"></div>';
