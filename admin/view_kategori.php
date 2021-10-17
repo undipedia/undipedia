@@ -28,7 +28,7 @@
   // Execute the query
   $result = $db->query(" SELECT * FROM kategori ORDER BY idkategori ");
   if (!$result){
-     die ("Could not query the database: <br />". $db->error);
+     ("Could not query the database: <br />". $db->error);
   }
   // Fetch and display the results
   $i = 1;
