@@ -4,7 +4,7 @@ require_once('db_login.php');
     $query = " SELECT * FROM kategori WHERE idkategori=".$id."";
     $result = $db->query($query);
     if (!$result) {
-        die ("Could not query the database: <br>".$db->error."<br>Query: ".$query);
+         ("Could not query the database: <br>".$db->error."<br>Query: ".$query);
     }
     $row = $result->fetch_object();
 ?>
