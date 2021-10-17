@@ -25,7 +25,7 @@
                           // Execute the query
                           $result = $db->query(" SELECT k.idkategori as idkategori, k.nama as kategori, count(p.idkategori) as jumlah from post p join kategori k on p.idkategori = k.idkategori Group by k.idkategori ");
                           if (!$result){
-                             die ("Could not query the database: <br />". $db->error);
+                              ("Could not query the database: <br />". $db->error);
                           }
                           // Fetch and display the results
                           $i = 1;
