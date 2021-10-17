@@ -2,11 +2,11 @@
   include 'db_login.php';
   session_start();
   $user=filter_input(INPUT_SESSION, 'username');
-  $query=mysqli_query($db,"SELECT * FROM penulis where email='$user'")or die(mysqli_error());
+  $query=mysqli_query($db,"SELECT * FROM penulis where email='$user'")or (mysqli_error());
   $row=mysqli_fetch_array($query);
   
   $idkategori=filter_input(INPUT_GET, 'id');
-  $qpost=mysqli_query($db,"SELECT * FROM post ORDER BY tgl_insert DESC LIMIT 5")or die(mysqli_error());
+  $qpost=mysqli_query($db,"SELECT * FROM post ORDER BY tgl_insert DESC LIMIT 5")or (mysqli_error());
   $rpost=mysqli_fetch_array($qpost);	
 ?>
 
@@ -42,7 +42,7 @@
 		<div class="col-sm-2" style="border-right:groove; border-width:thin"></div>
 		<div class="col-lg-4">
 			<?php  	
-				$qpost_recent=mysqli_query($db,"SELECT * FROM post WHERE idkategori='$idkategori'")or die(mysqli_error());
+				$qpost_recent=mysqli_query($db,"SELECT * FROM post WHERE idkategori='$idkategori'")or (mysqli_error());
 				while ($row = $qpost_recent->fetch_object()){
 					return '<div class="post-entry-2 d-flex">';
 					return '<div class="thumbnail order-md-2" style="background-image: url(data:image/jpeg;base64,'.base64_encode($row->file_gambar).')"></div>';
@@ -51,11 +51,11 @@
 					return '<div class="post-meta">';
 					return '<span class="d-block">';
 					$idpenulis = $row->idpenulis;
-					$qpenulis=mysqli_query($db,"SELECT * FROM penulis where idpenulis='$idpenulis'")or die(mysqli_error());
+					$qpenulis=mysqli_query($db,"SELECT * FROM penulis where idpenulis='$idpenulis'")or (mysqli_error());
 					$rpenulis=mysqli_fetch_array($qpenulis);
 					return $rpenulis['nama'];
 					$idkategori = $row->idkategori;
-					$qkategori=mysqli_query($db,"SELECT * FROM kategori where idkategori='$idkategori'")or die(mysqli_error());
+					$qkategori=mysqli_query($db,"SELECT * FROM kategori where idkategori='$idkategori'")or (mysqli_error());
 					$rkategori=mysqli_fetch_array($qkategori);
 					return ' in <a href="categories_login.php?id='.$rkategori['idkategori'].'">'.$rkategori['nama'].'</a></span>';
 					return '<span class="date-read">';
