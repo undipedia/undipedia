@@ -36,7 +36,7 @@ if (isset(filter_input(INPUT_POST, 'submit'))) {
         #execute query
         $result =$db->query($query);
         if (!$result) {
-            die ("could not query the database: <br>".$db->error.'<br>Query:'.$query);
+             ("could not query the database: <br>".$db->error.'<br>Query:'.$query);
         }
         else {
             header('Location: view_post.php');
@@ -67,7 +67,7 @@ if (isset(filter_input(INPUT_POST, 'submit'))) {
 				#execute query
 				$result =$db->query($query);
 				if (!$result) {
-					die("Could not query the database: <br>".$db->error);
+					("Could not query the database: <br>".$db->error);
 				}
 				while ($row=$result->fetch_object()) {
 					print_r'<option value="'.$row->idkategori.'">'.$row->nama.'</option>';
