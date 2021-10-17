@@ -2,7 +2,7 @@
   include 'db_login.php';
   session_start();
 	$id=filter_input(INPUT_SESSION, 'username');
-	$query=mysqli_query($db,"SELECT * FROM admin where email='$id'")or die(mysqli_error());
+	$query=mysqli_query($db,"SELECT * FROM admin where email='$id'") or (mysqli_error());
 	$row=mysqli_fetch_array($query);
 ?>
 
