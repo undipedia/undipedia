@@ -2,7 +2,7 @@
   include 'db_login.php';
   session_start();
 $user=filter_input(INPUT_SESSION, 'username');
-$query=mysqli_query($db,"SELECT * FROM penulis where email='$user'")or die(mysqli_error());
+$query=mysqli_query($db,"SELECT * FROM penulis where email='$user'")or (mysqli_error());
 $row=mysqli_fetch_array($query);
 ?>
 
@@ -59,7 +59,7 @@ if (isset(filter_input(INPUT_POST, 'submit'))){
 		//execute
 		$result = $db->query( $query );
 		if (!result){
-			die("Could not query the database: <br />". $db->error. '<br>Query:' .$query);
+			("Could not query the database: <br />". $db->error. '<br>Query:' .$query);
 		}
 		else{
 			$db->close();
