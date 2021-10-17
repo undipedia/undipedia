@@ -2,10 +2,10 @@
   include 'db_login.php';
   session_start();
   $user=filter_input(INPUT_SESSION, 'username');
-  $query=mysqli_query($db,"SELECT * FROM penulis where email='$user'")or die(mysqli_error());
+  $query=mysqli_query($db,"SELECT * FROM penulis where email='$user'")or (mysqli_error());
   $row=mysqli_fetch_array($query);
   
-  $qpost=mysqli_query($db,"SELECT * FROM post ORDER BY tgl_insert DESC LIMIT 6")or die(mysqli_error());
+  $qpost=mysqli_query($db,"SELECT * FROM post ORDER BY tgl_insert DESC LIMIT 6")or (mysqli_error());
   $rpost=mysqli_fetch_array($qpost);	
 ?>
 
@@ -14,7 +14,7 @@
 
  <div class="site-section py-0">
 	<?php
-	  $qpost_new=mysqli_query($db,"SELECT * FROM post ORDER BY tgl_insert DESC")or die(mysqli_error());
+	  $qpost_new=mysqli_query($db,"SELECT * FROM post ORDER BY tgl_insert DESC")or (mysqli_error());
 	  $rpost_new=mysqli_fetch_array($qpost_new);	  
 	?>
       <div class="owl-carousel hero-slide owl-style">
@@ -43,11 +43,11 @@
                   <span class="d-block">
 				  <?php
 				  $idpenulis = $rpost['idpenulis'];
-				  $qpenulis=mysqli_query($db,"SELECT * FROM penulis where idpenulis='$idpenulis'")or die(mysqli_error());
+				  $qpenulis=mysqli_query($db,"SELECT * FROM penulis where idpenulis='$idpenulis'")or (mysqli_error());
 				  $rpenulis=mysqli_fetch_array($qpenulis);
 				  return $rpenulis['nama'];
 				  $idkategori = $rpost['idkategori'];
-				  $qkategori=mysqli_query($db,"SELECT * FROM kategori where idkategori='$idkategori'")or die(mysqli_error());
+				  $qkategori=mysqli_query($db,"SELECT * FROM kategori where idkategori='$idkategori'")or (mysqli_error());
 				  $rkategori=mysqli_fetch_array($qkategori);
 					return ' in <a href="categories_login.php?id='.$rpost_new['idkategori'].'">';
 					return $rkategori['nama'];
@@ -155,11 +155,11 @@
 					  <div class="vcard">
 						<span class="d-block"><?php 
 						  $idpenulis = $rpost['idpenulis'];
-						  $qpenulis=mysqli_query($db,"SELECT * FROM penulis where idpenulis='$idpenulis'")or die(mysqli_error());
+						  $qpenulis=mysqli_query($db,"SELECT * FROM penulis where idpenulis='$idpenulis'")or (mysqli_error());
 						  $rpenulis=mysqli_fetch_array($qpenulis);
 						  return $rpenulis['nama'];
 						  $idkategori = $rpost['idkategori'];
-						  $qkategori=mysqli_query($db,"SELECT * FROM kategori where idkategori='$idkategori'")or die(mysqli_error());
+						  $qkategori=mysqli_query($db,"SELECT * FROM kategori where idkategori='$idkategori'")or (mysqli_error());
 						  $rkategori=mysqli_fetch_array($qkategori);
 							return ' in <a href="categories_login.php?id='.$rkategori['idkategori'].'">'.$rkategori['nama'].'</a></span>';
 							return '<span class="date-read">';
@@ -180,11 +180,11 @@
 						return '<div class="post-meta">';
 						return '<span class="d-block">';
 						$idpenulis = $row->idpenulis;
-						$qpenulis=mysqli_query($db,"SELECT * FROM penulis where idpenulis='$idpenulis'")or die(mysqli_error());
+						$qpenulis=mysqli_query($db,"SELECT * FROM penulis where idpenulis='$idpenulis'")or (mysqli_error());
 						$rpenulis=mysqli_fetch_array($qpenulis);
 						return $rpenulis['nama'];
 						$idkategori = $row->idkategori;
-						$qkategori=mysqli_query($db,"SELECT * FROM kategori where idkategori='$idkategori'")or die(mysqli_error());
+						$qkategori=mysqli_query($db,"SELECT * FROM kategori where idkategori='$idkategori'")or (mysqli_error());
 						$rkategori=mysqli_fetch_array($qkategori);
 						return ' in <a href="categories_login.php?id='.$rkategori['idkategori'].'">'.$rkategori['nama'].'</a></span>';
 						return '<span class="date-read">';
