@@ -1,7 +1,7 @@
 <?php
   include 'db_login.php';
   
-  $qpost=mysqli_query($db,"SELECT * FROM post ORDER BY tgl_insert DESC LIMIT 5")or die(mysqli_error());
+  $qpost=mysqli_query($db,"SELECT * FROM post ORDER BY tgl_insert DESC LIMIT 5")or (mysqli_error());
   $rpost=mysqli_fetch_array($qpost);	
 ?>
 
